@@ -1,0 +1,14 @@
+{
+	"schemaVersion": 1,
+	"id": "foxyfriends-gametest",
+	"version": "1.0.0",
+	"name": "FoxyFriends GameTests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-gametest": [
+		]
+	},
+	"depends": {
+		"foxyfriends": "*"
+	}
+}
