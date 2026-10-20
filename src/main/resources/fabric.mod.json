@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "foxyfriends",
+	"version": "${version}",
+	"name": "FoxyFriends",
+	"description": "Make foxes your friends",
+	"authors": [
+		"senzifox"
+	],
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.senzifox.foxyfriends.FoxyFriends"
+		],
+		"client": [
+			"dev.senzifox.foxyfriends.client.FoxyFriendsClient"
+		]
+	},
+	"mixins": [
+		"foxyfriends.mixins.json",
+		{
+			"config": "foxyfriends.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": ">=0.165.0"
+	}
+}
