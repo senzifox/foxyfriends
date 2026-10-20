@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "dev.senzifox.foxyfriends.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"mixins": [],
+	"mixins": [
+		"FoxAccessor"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},

@@ -6,6 +6,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"fabric-gametest": [
+			"dev.senzifox.foxyfriends.gametest.FoxOwnershipGameTests"
 		]
 	},
 	"depends": {

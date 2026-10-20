@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends;
 
+import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
 
@@ -8,6 +9,7 @@ public class FoxyFriends implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		FoxOwnership.init();
 	}
 
 	public static Identifier id(String path) {
