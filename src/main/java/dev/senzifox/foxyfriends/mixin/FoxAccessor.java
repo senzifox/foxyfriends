@@ -12,4 +12,10 @@ public interface FoxAccessor {
 
 	@Invoker("addTrustedEntity")
 	void foxyfriends$addTrustedEntity(LivingEntity entity);
+
+	@Invoker("clearStates")
+	void foxyfriends$clearStates();
+
+	@Invoker("setSleeping")
+	void foxyfriends$setSleeping(boolean sleeping);
 }
