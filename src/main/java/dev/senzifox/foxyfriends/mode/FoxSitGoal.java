@@ -27,7 +27,7 @@ public class FoxSitGoal extends Goal {
 
 	@Override
 	public void start() {
-		fox.getNavigation().stop();
+		FoxModes.stopMoving(fox);
 	}
 
 	@Override

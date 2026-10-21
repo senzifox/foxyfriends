@@ -35,14 +35,26 @@ public final class FoxModes {
 		return FoxOwnership.isTame(fox) && getMode(fox) == mode;
 	}
 
+	public static boolean canHunt(Fox fox) {
+		return !FoxOwnership.isTame(fox) || getMode(fox) == FoxMode.WANDER;
+	}
+
 	public static void setMode(Fox fox, FoxMode mode) {
 		fox.setAttached(MODE, mode);
 		((FoxAccessor) fox).foxyfriends$clearStates();
-		fox.getNavigation().stop();
+		stopMoving(fox);
 		fox.setTarget(null);
 		if (mode == FoxMode.SIT) {
 			fox.setSitting(true);
 		}
+	}
+
+	public static void stopMoving(Fox fox) {
+		fox.getNavigation().stop();
+		fox.getMoveControl().setWantedPosition(fox.getX(), fox.getY(), fox.getZ(), 0.0);
+		fox.setSpeed(0.0F);
+		fox.setXxa(0.0F);
+		fox.setJumping(false);
 	}
 
 	public static @Nullable InteractionResult interact(Fox fox, Player player, InteractionHand hand) {

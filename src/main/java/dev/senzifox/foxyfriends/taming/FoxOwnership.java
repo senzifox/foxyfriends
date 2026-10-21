@@ -29,6 +29,10 @@ public final class FoxOwnership {
 		return fox.getAttached(OWNER);
 	}
 
+	public static @Nullable LivingEntity getOwner(Fox fox) {
+		return EntityReference.getLivingEntity(getOwnerReference(fox), fox.level());
+	}
+
 	public static boolean isTame(Fox fox) {
 		return fox.hasAttached(OWNER);
 	}

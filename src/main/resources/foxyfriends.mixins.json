@@ -5,7 +5,9 @@
 	"mixins": [
 		"AnimalMixin",
 		"FoxAccessor",
-		"FoxMixin"
+		"FoxMixin",
+		"FoxSeekShelterGoalMixin",
+		"FoxSleepGoalMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
