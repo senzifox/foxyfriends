@@ -1,7 +1,9 @@
 package dev.senzifox.foxyfriends.mixin;
 
 import dev.senzifox.foxyfriends.mode.FoxFollowOwnerGoal;
+import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
+import dev.senzifox.foxyfriends.mode.FoxReturnHomeGoal;
 import dev.senzifox.foxyfriends.mode.FoxSitGoal;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -25,6 +27,16 @@ public abstract class FoxMixin extends Animal {
 		Fox fox = (Fox) (Object) this;
 		goalSelector.addGoal(1, new FoxSitGoal(fox));
 		goalSelector.addGoal(3, new FoxFollowOwnerGoal(fox));
+		goalSelector.addGoal(8, new FoxReturnHomeGoal(fox));
+	}
+
+	@Override
+	public void onLeashRemoved() {
+		super.onLeashRemoved();
+		Fox fox = (Fox) (Object) this;
+		if (FoxModes.isInMode(fox, FoxMode.WANDER) && !hasHome()) {
+			setHomeTo(blockPosition(), FoxModes.WANDER_RADIUS);
+		}
 	}
 
 	@ModifyArg(

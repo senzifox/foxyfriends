@@ -14,6 +14,8 @@ import net.minecraft.world.entity.player.Player;
 import org.jspecify.annotations.Nullable;
 
 public final class FoxModes {
+	public static final int WANDER_RADIUS = 16;
+
 	public static final AttachmentType<FoxMode> MODE = AttachmentRegistry.create(
 		FoxyFriends.id("mode"),
 		builder -> builder
@@ -46,6 +48,12 @@ public final class FoxModes {
 		fox.setTarget(null);
 		if (mode == FoxMode.SIT) {
 			fox.setSitting(true);
+		}
+
+		if (mode == FoxMode.WANDER) {
+			fox.setHomeTo(fox.blockPosition(), WANDER_RADIUS);
+		} else if (!fox.isLeashed()) {
+			fox.clearHome();
 		}
 	}
 

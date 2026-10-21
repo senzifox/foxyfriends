@@ -57,6 +57,8 @@ public class FoxModeGameTests {
 		loaded.load(TagValueInput.create(ProblemReporter.DISCARDING, helper.getLevel().registryAccess(), output.buildResult()));
 
 		helper.assertValueEqual(FoxModes.getMode(loaded), FoxMode.WANDER, "loaded mode");
+		helper.assertValueEqual(loaded.getHomePosition(), fox.getHomePosition(), "loaded wander point");
+		helper.assertValueEqual(loaded.getHomeRadius(), FoxModes.WANDER_RADIUS, "loaded wander radius");
 		helper.succeed();
 	}
 
