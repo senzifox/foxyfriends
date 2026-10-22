@@ -30,22 +30,26 @@ public final class FoxTargets {
 	}
 
 	public static boolean wantsToAttack(@Nullable LivingEntity target, LivingEntity owner) {
-		if (target == null || target.is(WONT_ATTACK)) {
+		if (target == null || isProtected(target)) {
 			return false;
 		}
 
-		if (target instanceof Player player && owner instanceof Player ownerPlayer && !ownerPlayer.canHarmPlayer(player)) {
-			return false;
+		return !(target instanceof Player player && owner instanceof Player ownerPlayer && !ownerPlayer.canHarmPlayer(player));
+	}
+
+	public static boolean isProtected(LivingEntity target) {
+		if (target.is(WONT_ATTACK)) {
+			return true;
 		}
 
 		if (target instanceof Fox fox && FoxOwnership.isTame(fox)) {
-			return false;
+			return true;
 		}
 
 		if (target instanceof AbstractHorse horse && horse.isTamed()) {
-			return false;
+			return true;
 		}
 
-		return !(target instanceof TamableAnimal animal && animal.isTame());
+		return target instanceof TamableAnimal animal && animal.isTame();
 	}
 }

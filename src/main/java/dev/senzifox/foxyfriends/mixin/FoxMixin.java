@@ -2,6 +2,7 @@ package dev.senzifox.foxyfriends.mixin;
 
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtByTargetGoal;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtTargetGoal;
+import dev.senzifox.foxyfriends.defense.FoxRetaliateGoal;
 import dev.senzifox.foxyfriends.mode.FoxFollowOwnerGoal;
 import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
@@ -32,6 +33,7 @@ public abstract class FoxMixin extends Animal {
 		goalSelector.addGoal(8, new FoxReturnHomeGoal(fox));
 		targetSelector.addGoal(1, new FoxOwnerHurtByTargetGoal(fox));
 		targetSelector.addGoal(2, new FoxOwnerHurtTargetGoal(fox));
+		targetSelector.addGoal(3, new FoxRetaliateGoal(fox));
 	}
 
 	@Override

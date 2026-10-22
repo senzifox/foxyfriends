@@ -17,12 +17,12 @@ public class FoxSitGoal extends Goal {
 
 	@Override
 	public boolean canUse() {
-		return FoxModes.isInMode(fox, FoxMode.SIT) && !fox.isInWater() && fox.onGround();
+		return FoxModes.isInMode(fox, FoxMode.SIT) && !inDanger() && fox.onGround();
 	}
 
 	@Override
 	public boolean canContinueToUse() {
-		return FoxModes.isInMode(fox, FoxMode.SIT) && !fox.isInWater();
+		return FoxModes.isInMode(fox, FoxMode.SIT) && !inDanger();
 	}
 
 	@Override
@@ -39,6 +39,10 @@ public class FoxSitGoal extends Goal {
 	@Override
 	public boolean requiresUpdateEveryTick() {
 		return true;
+	}
+
+	private boolean inDanger() {
+		return fox.isInWater() || fox.isOnFire() || fox.isFreezing();
 	}
 
 	@Override
