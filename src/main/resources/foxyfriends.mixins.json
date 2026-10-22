@@ -5,6 +5,7 @@
 	"mixins": [
 		"AnimalMixin",
 		"FoxAccessor",
+		"FoxDefendTrustedTargetGoalMixin",
 		"FoxMixin",
 		"FoxSeekShelterGoalMixin",
 		"FoxSleepGoalMixin"

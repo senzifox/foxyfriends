@@ -1,0 +1,14 @@
+{
+  "values": [
+    "minecraft:creeper",
+    "minecraft:ghast",
+    "minecraft:happy_ghast",
+    "minecraft:armor_stand",
+    "minecraft:iron_golem",
+    "minecraft:warden",
+    "minecraft:ravager",
+    "minecraft:wither",
+    "minecraft:ender_dragon",
+    "minecraft:elder_guardian"
+  ]
+}
