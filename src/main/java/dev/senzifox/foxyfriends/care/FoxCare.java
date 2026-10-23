@@ -2,6 +2,7 @@ package dev.senzifox.foxyfriends.care;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -31,6 +32,14 @@ public final class FoxCare {
 	private FoxCare() {
 	}
 
+	public static void init() {
+		ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {
+			if (entity instanceof Fox fox && FoxOwnership.isTame(fox)) {
+				applyTamedStats(fox);
+			}
+		});
+	}
+
 	public static void onTamed(Fox fox) {
 		applyTamedStats(fox);
 		fox.setHealth(fox.getMaxHealth());
@@ -41,7 +50,6 @@ public final class FoxCare {
 			return;
 		}
 
-		applyTamedStats(fox);
 		if (fox.tickCount % REGEN_INTERVAL_TICKS == 0 && fox.isAlive() && isWounded(fox) && fox.getLastDamageSource(CALM_TICKS) == null) {
 			fox.heal(REGEN_AMOUNT);
 		}
