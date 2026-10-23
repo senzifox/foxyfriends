@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends.mixin;
 
+import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtByTargetGoal;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtTargetGoal;
 import dev.senzifox.foxyfriends.defense.FoxRetaliateGoal;
@@ -34,6 +35,11 @@ public abstract class FoxMixin extends Animal {
 		targetSelector.addGoal(1, new FoxOwnerHurtByTargetGoal(fox));
 		targetSelector.addGoal(2, new FoxOwnerHurtTargetGoal(fox));
 		targetSelector.addGoal(3, new FoxRetaliateGoal(fox));
+	}
+
+	@Inject(method = "aiStep", at = @At("TAIL"))
+	private void foxyfriends$care(CallbackInfo ci) {
+		FoxCare.tick((Fox) (Object) this);
 	}
 
 	@Override
