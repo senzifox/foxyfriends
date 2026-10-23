@@ -1,5 +1,7 @@
 {
   "message.foxyfriends.mode.follow": "%s is following you",
   "message.foxyfriends.mode.sit": "%s is sitting",
-  "message.foxyfriends.mode.wander": "%s is wandering around"
+  "message.foxyfriends.mode.wander": "%s is wandering around",
+  "tag.item.foxyfriends.fox_taming_food": "Fox Taming Food",
+  "tag.item.foxyfriends.fox_healing_food": "Fox Healing Food"
 }
