@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends.mixin;
 
+import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.taming.FoxTaming;
 import net.minecraft.world.InteractionHand;
@@ -18,6 +19,10 @@ public abstract class AnimalMixin {
 	private void foxyfriends$interactWithFox(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
 		if ((Object) this instanceof Fox fox) {
 			InteractionResult result = FoxTaming.interact(fox, player, hand);
+			if (result == null) {
+				result = FoxCare.interact(fox, player, hand);
+			}
+
 			if (result == null) {
 				result = FoxModes.interact(fox, player, hand);
 			}
