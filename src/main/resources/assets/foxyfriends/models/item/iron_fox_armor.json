@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "foxyfriends:item/iron_fox_armor"
+  }
+}

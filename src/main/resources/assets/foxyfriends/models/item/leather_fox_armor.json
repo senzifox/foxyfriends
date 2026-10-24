@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "foxyfriends:item/leather_fox_armor",
+    "layer1": "foxyfriends:item/leather_fox_armor_overlay"
+  }
+}

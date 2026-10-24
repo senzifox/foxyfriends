@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_dye",
+  "dye": "#minecraft:dyes",
+  "group": "dyed_armor",
+  "result": {
+    "id": "foxyfriends:leather_fox_armor"
+  },
+  "target": "foxyfriends:leather_fox_armor"
+}
