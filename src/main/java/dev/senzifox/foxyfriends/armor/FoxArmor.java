@@ -1,6 +1,7 @@
 package dev.senzifox.foxyfriends.armor;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -8,10 +9,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.animal.fox.Fox;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterials;
@@ -19,6 +25,7 @@ import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 import net.minecraft.world.item.equipment.Equippable;
+import org.jspecify.annotations.Nullable;
 
 public final class FoxArmor {
 	public static final Item LEATHER_FOX_ARMOR = register("leather_fox_armor", ArmorMaterials.LEATHER, new Item.Properties());
@@ -41,6 +48,24 @@ public final class FoxArmor {
 			DIAMOND_FOX_ARMOR,
 			NETHERITE_FOX_ARMOR
 		));
+	}
+
+	public static @Nullable InteractionResult interact(Fox fox, Player player, InteractionHand hand) {
+		ItemStack stack = player.getItemInHand(hand);
+		if (!fox.isEquippableInSlot(stack, EquipmentSlot.BODY)
+			|| fox.isBaby()
+			|| !fox.getBodyArmorItem().isEmpty()
+			|| !FoxOwnership.isOwnedBy(fox, player)) {
+			return null;
+		}
+
+		if (!fox.level().isClientSide()) {
+			fox.setItemSlot(EquipmentSlot.BODY, stack.copyWithCount(1));
+			fox.setGuaranteedDrop(EquipmentSlot.BODY);
+			stack.consume(1, player);
+		}
+
+		return InteractionResult.SUCCESS;
 	}
 
 	private static Item register(String name, ArmorMaterial material, Item.Properties properties) {

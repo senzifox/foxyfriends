@@ -9,10 +9,12 @@ import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.mode.FoxReturnHomeGoal;
 import dev.senzifox.foxyfriends.mode.FoxSitGoal;
+import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.fox.Fox;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -49,6 +51,11 @@ public abstract class FoxMixin extends Animal {
 		if (FoxModes.isInMode(fox, FoxMode.WANDER) && !hasHome()) {
 			setHomeTo(blockPosition(), FoxModes.WANDER_RADIUS);
 		}
+	}
+
+	@Override
+	protected boolean canShearEquipment(Player player) {
+		return FoxOwnership.isOwnedBy((Fox) (Object) this, player) && super.canShearEquipment(player);
 	}
 
 	@ModifyArg(
