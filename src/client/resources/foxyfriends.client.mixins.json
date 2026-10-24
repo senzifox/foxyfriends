@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "dev.senzifox.foxyfriends.client.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"client": [],
+	"client": [
+		"FoxRendererMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},
