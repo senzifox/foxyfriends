@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends.mixin;
 
+import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtByTargetGoal;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtTargetGoal;
@@ -15,12 +16,14 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Fox.class)
 public abstract class FoxMixin extends Animal {
@@ -50,6 +53,13 @@ public abstract class FoxMixin extends Animal {
 		Fox fox = (Fox) (Object) this;
 		if (FoxModes.isInMode(fox, FoxMode.WANDER) && !hasHome()) {
 			setHomeTo(blockPosition(), FoxModes.WANDER_RADIUS);
+		}
+	}
+
+	@Inject(method = "canHoldItem", at = @At("HEAD"), cancellable = true)
+	private void foxyfriends$keepArmorOutOfMouth(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+		if (FoxArmor.isFoxArmor(stack)) {
+			cir.setReturnValue(false);
 		}
 	}
 

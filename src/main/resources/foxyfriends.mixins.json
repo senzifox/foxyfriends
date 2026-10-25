@@ -8,6 +8,7 @@
 		"FoxDefendTrustedTargetGoalMixin",
 		"FoxMixin",
 		"FoxPanicGoalMixin",
+		"FoxSearchForItemsGoalMixin",
 		"FoxSeekShelterGoalMixin",
 		"FoxSleepGoalMixin"
 	],

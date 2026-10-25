@@ -68,6 +68,13 @@ public final class FoxArmor {
 		return InteractionResult.SUCCESS;
 	}
 
+	public static boolean isFoxArmor(ItemStack stack) {
+		Equippable equippable = stack.get(DataComponents.EQUIPPABLE);
+		return equippable != null
+			&& equippable.slot() == EquipmentSlot.BODY
+			&& equippable.canBeEquippedBy(EntityTypes.FOX.builtInRegistryHolder());
+	}
+
 	private static Item register(String name, ArmorMaterial material, Item.Properties properties) {
 		ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, FoxyFriends.id(name));
 		ResourceKey<EquipmentAsset> asset = ResourceKey.create(EquipmentAssets.ROOT_ID, FoxyFriends.id(material.assetId().identifier().getPath()));
