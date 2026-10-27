@@ -7,6 +7,7 @@
 	"authors": [
 		"senzifox"
 	],
+	"icon": "assets/foxyfriends/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
