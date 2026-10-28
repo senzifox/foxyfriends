@@ -2,11 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "X": "minecraft:gold_ingot"
+    "X": "minecraft:gold_ingot",
+    "Y": "minecraft:leather"
   },
   "pattern": [
-    "X  ",
-    " XX",
+    "XX ",
+    " XY",
     "X X"
   ],
   "result": {
