@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "foxyfriends:diamond_fox_armor",
+  "result": {
+    "id": "foxyfriends:netherite_fox_armor"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

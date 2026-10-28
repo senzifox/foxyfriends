@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "X  ",
+    " XX",
+    "X X"
+  ],
+  "result": {
+    "id": "foxyfriends:iron_fox_armor"
+  }
+}
