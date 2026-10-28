@@ -11,7 +11,9 @@ import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.mode.FoxReturnHomeGoal;
 import dev.senzifox.foxyfriends.mode.FoxSitGoal;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
+import java.util.function.Predicate;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.fox.Fox;
@@ -79,5 +81,19 @@ public abstract class FoxMixin extends Animal {
 	private TargetingConditions.Selector foxyfriends$huntOnlyWhenAllowed(TargetingConditions.Selector selector) {
 		Fox fox = (Fox) (Object) this;
 		return (target, level) -> FoxModes.canHunt(fox) && selector.test(target, level);
+	}
+
+	@ModifyArg(
+		method = "registerGoals",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/entity/ai/goal/AvoidEntityGoal;<init>(Lnet/minecraft/world/entity/PathfinderMob;Ljava/lang/Class;FDDLjava/util/function/Predicate;)V",
+			ordinal = 0
+		),
+		index = 5
+	)
+	private Predicate<LivingEntity> foxyfriends$fleePlayersOnlyWhenWild(Predicate<LivingEntity> predicate) {
+		Fox fox = (Fox) (Object) this;
+		return entity -> !FoxOwnership.isTame(fox) && predicate.test(entity);
 	}
 }
