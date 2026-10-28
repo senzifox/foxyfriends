@@ -3,14 +3,14 @@
 # FoxyFriends
 
 Make foxes your friends  
-Inspired by [Foxes & Stuff](https://github.com/Vortianski/Foxes---Stuff) by Vortianski
 
 > The mod is in early development, features and balance may change between versions
 
 ## Features
 ### Taming
 
-Feed a fox raw prey: chicken, rabbit and [more](#customization), a fox that already trusts you is tamed on the first feeding, a wild one has a 1 in 10 chance
+Feed a fox raw prey: chicken, rabbit and [more](#customization), a fox that already trusts you is tamed on the first feeding, a wild one has a 1 in 10 chance  
+A tamed fox doesn't run away from other players
 
 ### Modes
 
@@ -34,8 +34,20 @@ Every tamed fox wears a collar, use any dye on your fox to change its color
 ### Armor
 
 Foxes can wear leather, copper, iron, golden, diamond or netherite armor  
-Right-click your adult fox with armor to put it on and use shears to take it off  
-Leather armor can be dyed just like any other leather armor
+Right-click your adult fox with armor to put it on and use shears to take it off
+
+Craft armor from a material and a piece of leather, upgrade diamond armor to netherite at a smithing table
+
+|&nbsp;|&nbsp;|&nbsp;|
+|-|-|-|
+|`M`|`M`|·|
+|·|`M`|`L`|
+|`M`|·|`M`|
+
+`M` - leather, copper ingot, iron ingot, gold ingot or diamond  
+`L` - leather
+
+Leather armor can be dyed and washed in a cauldron just like any other leather armor, it also keeps a fox warm in powder snow
 
 ## Customization
 
@@ -53,6 +65,8 @@ Data packs can change fox behavior through tags
 |-|-|-|-|
 | 26.3      | 0.20.1+       | 0.165.0+   | 25+  |
 
+Requires [Fabric API](https://modrinth.com/mod/fabric-api) on both server and client sides
+
 ## Building
 
 ```sh
@@ -60,3 +74,6 @@ Data packs can change fox behavior through tags
 ```
 
 This also runs the game tests. The jar ends up in build/libs/.
+
+## Credits
+Thanks to Vortianski for [Foxes & Stuff](https://github.com/Vortianski/Foxes---Stuff), the mod that sparked this
