@@ -4,10 +4,10 @@
   "message.foxyfriends.mode.wander": "%s гуляет поблизости",
   "tag.item.foxyfriends.fox_taming_food": "Корм для приручения лис",
   "tag.item.foxyfriends.fox_healing_food": "Корм для лечения лис",
-  "item.foxyfriends.leather_fox_armor": "Лисья кожанная броня",
-  "item.foxyfriends.copper_fox_armor": "Лисья медная броня",
-  "item.foxyfriends.iron_fox_armor": "Лисья железная броня",
-  "item.foxyfriends.golden_fox_armor": "Лисья золотая броня",
-  "item.foxyfriends.diamond_fox_armor": "Лисья алмазная броня",
-  "item.foxyfriends.netherite_fox_armor": "Лисья незеритовая броня"
+  "item.foxyfriends.leather_fox_armor": "Кожаная лисья броня",
+  "item.foxyfriends.copper_fox_armor": "Медная лисья броня",
+  "item.foxyfriends.iron_fox_armor": "Железная лисья броня",
+  "item.foxyfriends.golden_fox_armor": "Золотая лисья броня",
+  "item.foxyfriends.diamond_fox_armor": "Алмазная лисья броня",
+  "item.foxyfriends.netherite_fox_armor": "Незеритовая лисья броня"
 }
