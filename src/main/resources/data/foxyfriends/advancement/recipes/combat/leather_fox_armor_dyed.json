@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_leather_fox_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foxyfriends:leather_fox_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "foxyfriends:leather_fox_armor_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_leather_fox_armor"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foxyfriends:leather_fox_armor_dyed"
+    ]
+  }
+}
