@@ -77,3 +77,7 @@ This also runs the game tests. The jar ends up in build/libs/.
 
 ## Credits
 Thanks to Vortianski for [Foxes & Stuff](https://github.com/Vortianski/Foxes---Stuff), the mod that sparked this
+
+## License
+Copyright (c) 2026 senzifox  
+[GPL-3.0](LICENSE)
