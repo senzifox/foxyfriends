@@ -7,6 +7,11 @@
 	"authors": [
 		"senzifox"
 	],
+	"contact": {
+		"homepage": "https://github.com/senzifox/foxyfriends",
+		"sources": "https://github.com/senzifox/foxyfriends",
+		"issues": "https://github.com/senzifox/foxyfriends/issues"
+	},
 	"license": "GPL-3.0-only",
 	"icon": "assets/foxyfriends/icon.png",
 	"environment": "*",
