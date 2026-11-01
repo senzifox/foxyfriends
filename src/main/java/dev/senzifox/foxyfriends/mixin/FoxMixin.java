@@ -10,8 +10,11 @@ import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.mode.FoxReturnHomeGoal;
 import dev.senzifox.foxyfriends.mode.FoxSitGoal;
+import dev.senzifox.foxyfriends.taming.FoxBreeding;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.function.Predicate;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -95,5 +98,12 @@ public abstract class FoxMixin extends Animal {
 	private Predicate<LivingEntity> foxyfriends$fleePlayersOnlyWhenWild(Predicate<LivingEntity> predicate) {
 		Fox fox = (Fox) (Object) this;
 		return entity -> !FoxOwnership.isTame(fox) && predicate.test(entity);
+	}
+
+	@Inject(method = "getBreedOffspring(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/AgeableMob;)Lnet/minecraft/world/entity/animal/fox/Fox;", at = @At("RETURN"))
+	private void foxyfriends$inheritOwner(ServerLevel level, AgeableMob partner, CallbackInfoReturnable<Fox> cir) {
+		if (cir.getReturnValue() instanceof Fox baby && partner instanceof Fox partnerFox) {
+			FoxBreeding.onBorn(baby, (Fox) (Object) this, partnerFox);
+		}
 	}
 }
