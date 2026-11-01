@@ -1,11 +1,10 @@
 package dev.senzifox.foxyfriends.mode;
 
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
+import dev.senzifox.foxyfriends.defense.FoxTargets;
 import java.util.EnumSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -55,12 +54,7 @@ public class FoxSitGoal extends Goal {
 	}
 
 	private boolean inDanger() {
-		return fox.isInWater() || fox.isOnFire() || fox.isFreezing() || fox.getTarget() != null || hurtByEnvironment();
-	}
-
-	private boolean hurtByEnvironment() {
-		DamageSource source = fox.getLastDamageSource();
-		return source != null && source.is(DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES);
+		return fox.isInWater() || fox.isOnFire() || fox.isFreezing() || fox.getTarget() != null || FoxTargets.isFrightened(fox);
 	}
 
 	@Override

@@ -1,8 +1,7 @@
 package dev.senzifox.foxyfriends.mixin;
 
+import dev.senzifox.foxyfriends.defense.FoxTargets;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.animal.fox.Fox;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,8 +19,7 @@ public abstract class FoxPanicGoalMixin {
 	@Inject(method = "shouldPanic", at = @At("HEAD"), cancellable = true)
 	private void foxyfriends$panicOnlyFromEnvironment(CallbackInfoReturnable<Boolean> cir) {
 		if (FoxOwnership.isTame(this$0)) {
-			DamageSource source = this$0.getLastDamageSource();
-			cir.setReturnValue(source != null && source.is(DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES));
+			cir.setReturnValue(FoxTargets.isFrightened(this$0));
 		}
 	}
 }

@@ -6,7 +6,9 @@ import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
@@ -33,6 +35,14 @@ public final class FoxTargets {
 			return owner != null && fox.distanceToSqr(owner) > OWNER_LEASH_DISTANCE * OWNER_LEASH_DISTANCE;
 		}
 		return false;
+	}
+
+	public static boolean isFrightened(Fox fox) {
+		DamageSource source = fox.getLastDamageSource();
+		if (source == null) {
+			return false;
+		}
+		return source.is(DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES) || source.getEntity() instanceof LivingEntity attacker && isProtected(attacker);
 	}
 
 	public static void standGround(Fox fox) {
