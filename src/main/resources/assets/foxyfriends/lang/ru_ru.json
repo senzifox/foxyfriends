@@ -2,6 +2,8 @@
   "message.foxyfriends.mode.follow": "%s следует за тобой",
   "message.foxyfriends.mode.sit": "%s сидит",
   "message.foxyfriends.mode.wander": "%s гуляет поблизости",
+  "multiplayer.foxyfriends.missing": "Для этого сервера нужен FoxyFriends %s",
+  "multiplayer.foxyfriends.version_mismatch": "Для этого сервера нужен FoxyFriends %s, у тебя %s",
   "tag.item.foxyfriends.fox_taming_food": "Корм для приручения лис",
   "tag.item.foxyfriends.fox_healing_food": "Корм для лечения лис",
   "item.foxyfriends.leather_fox_armor": "Кожаная лисья броня",

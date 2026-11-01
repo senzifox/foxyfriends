@@ -2,6 +2,8 @@
   "message.foxyfriends.mode.follow": "%s is following you",
   "message.foxyfriends.mode.sit": "%s is sitting",
   "message.foxyfriends.mode.wander": "%s is wandering around",
+  "multiplayer.foxyfriends.missing": "This server requires FoxyFriends %s",
+  "multiplayer.foxyfriends.version_mismatch": "This server requires FoxyFriends %s, you have %s",
   "tag.item.foxyfriends.fox_taming_food": "Fox Taming Food",
   "tag.item.foxyfriends.fox_healing_food": "Fox Healing Food",
   "item.foxyfriends.leather_fox_armor": "Leather Fox Armor",

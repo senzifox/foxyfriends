@@ -4,6 +4,7 @@ import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.collar.FoxCollar;
 import dev.senzifox.foxyfriends.mode.FoxModes;
+import dev.senzifox.foxyfriends.network.FoxVersionCheck;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -18,6 +19,7 @@ public class FoxyFriends implements ModInitializer {
 		FoxCare.init();
 		FoxCollar.init();
 		FoxArmor.init();
+		FoxVersionCheck.init();
 	}
 
 	public static Identifier id(String path) {
