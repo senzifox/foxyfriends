@@ -2,6 +2,7 @@ package dev.senzifox.foxyfriends.mixin;
 
 import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
+import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.minecraft.world.entity.animal.fox.Fox;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +19,7 @@ public abstract class FoxSleepGoalMixin {
 
 	@Inject(method = {"canUse", "canContinueToUse"}, at = @At("HEAD"), cancellable = true)
 	private void foxyfriends$stayAwakeWhileFollowing(CallbackInfoReturnable<Boolean> cir) {
-		if (FoxModes.isInMode(this$0, FoxMode.FOLLOW)) {
+		if (FoxModes.isInMode(this$0, FoxMode.FOLLOW) && FoxOwnership.getOwner(this$0) != null) {
 			cir.setReturnValue(false);
 		}
 	}

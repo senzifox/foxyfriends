@@ -31,7 +31,17 @@ public final class FoxOwnership {
 	}
 
 	public static @Nullable LivingEntity getOwner(Fox fox) {
-		return EntityReference.getLivingEntity(getOwnerReference(fox), fox.level());
+		EntityReference<LivingEntity> reference = getOwnerReference(fox);
+		if (reference == null) {
+			return null;
+		}
+
+		LivingEntity owner = reference.getEntity(fox.level()::getEntity, LivingEntity.class);
+		return owner != null && isNearby(fox, owner) ? owner : null;
+	}
+
+	public static boolean isNearby(Fox fox, LivingEntity owner) {
+		return !owner.isRemoved() && owner.level() == fox.level();
 	}
 
 	public static boolean isTame(Fox fox) {
