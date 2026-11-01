@@ -25,7 +25,7 @@ A tamed fox defends you from anyone who hurts you, joins the fights you start an
 
 ### Care
 
-Tamed foxes are stronger: 25 hp and 3 attack dmg, anyone can heal a fox with [raw or cooked prey](#customization), and a fox slowly regenerates when it hasn't been hurt for a while
+Tamed foxes are stronger: 25 hp and 3 attack dmg, anyone can heal a fox with [meat, fish or berries](#customization), and a fox slowly regenerates when it hasn't been hurt for a while
 
 ### Collar
 

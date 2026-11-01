@@ -8,6 +8,14 @@
     "minecraft:cooked_cod",
     "minecraft:salmon",
     "minecraft:cooked_salmon",
-    "minecraft:tropical_fish"
+    "minecraft:tropical_fish",
+    "minecraft:beef",
+    "minecraft:cooked_beef",
+    "minecraft:cooked_mutton",
+    "minecraft:cooked_porkchop",
+    "minecraft:glow_berries",
+    "minecraft:mutton",
+    "minecraft:porkchop",
+    "minecraft:sweet_berries"
   ]
 }
