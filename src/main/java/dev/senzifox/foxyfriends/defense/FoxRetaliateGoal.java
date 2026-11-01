@@ -25,7 +25,7 @@ public class FoxRetaliateGoal extends HurtByTargetGoal {
 
 	@Override
 	public boolean canContinueToUse() {
-		return FoxTargets.canDefend(fox) && super.canContinueToUse();
+		return FoxTargets.canDefend(fox) && fox.getTarget() != null && super.canContinueToUse();
 	}
 
 	@Override
