@@ -1,6 +1,7 @@
 package dev.senzifox.foxyfriends.defense;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.mixin.FoxAccessor;
 import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
@@ -32,6 +33,10 @@ public final class FoxTargets {
 			return owner != null && fox.distanceToSqr(owner) > OWNER_LEASH_DISTANCE * OWNER_LEASH_DISTANCE;
 		}
 		return false;
+	}
+
+	public static void standGround(Fox fox) {
+		((FoxAccessor) fox).foxyfriends$setDefending(true);
 	}
 
 	public static @Nullable LivingEntity defendedOwner(Fox fox) {

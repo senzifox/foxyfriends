@@ -18,4 +18,7 @@ public interface FoxAccessor {
 
 	@Invoker("setSleeping")
 	void foxyfriends$setSleeping(boolean sleeping);
+
+	@Invoker("setDefending")
+	void foxyfriends$setDefending(boolean defending);
 }

@@ -46,6 +46,7 @@ public class FoxOwnerHurtTargetGoal extends TargetGoal {
 		}
 
 		super.start();
+		FoxTargets.standGround(fox);
 	}
 
 	@Override

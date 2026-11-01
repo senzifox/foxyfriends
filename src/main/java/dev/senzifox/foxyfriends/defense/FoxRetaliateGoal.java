@@ -30,6 +30,12 @@ public class FoxRetaliateGoal extends HurtByTargetGoal {
 	}
 
 	@Override
+	public void start() {
+		super.start();
+		FoxTargets.standGround(fox);
+	}
+
+	@Override
 	protected double getFollowDistance() {
 		return FoxTargets.CHASE_DISTANCE;
 	}
