@@ -35,5 +35,14 @@
 		"minecraft": "~26.3",
 		"java": ">=25",
 		"fabric-api": ">=0.165.0"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/foxyfriends",
+				"modmenu.github_releases": "https://github.com/senzifox/foxyfriends/releases",
+				"modmenu.website": "https://senzi.dev/foxyfriends"
+			}
+		}
 	}
 }
