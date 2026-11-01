@@ -17,6 +17,7 @@ public class FoxRetaliateGoal extends HurtByTargetGoal {
 	public boolean canUse() {
 		LivingEntity attacker = fox.getLastHurtByMob();
 		return FoxOwnership.isTame(fox)
+			&& !FoxTargets.isLeftBehind(fox)
 			&& attacker != null
 			&& !FoxOwnership.isOwnedBy(fox, attacker)
 			&& !FoxTargets.isProtected(attacker)
@@ -25,7 +26,7 @@ public class FoxRetaliateGoal extends HurtByTargetGoal {
 
 	@Override
 	public boolean canContinueToUse() {
-		return FoxOwnership.isTame(fox) && fox.getTarget() != null && super.canContinueToUse();
+		return FoxOwnership.isTame(fox) && !FoxTargets.isLeftBehind(fox) && fox.getTarget() != null && super.canContinueToUse();
 	}
 
 	@Override

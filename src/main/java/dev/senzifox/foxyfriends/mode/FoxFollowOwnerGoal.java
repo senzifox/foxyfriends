@@ -85,7 +85,12 @@ public class FoxFollowOwnerGoal extends Goal {
 	}
 
 	private boolean canFollow(LivingEntity target) {
-		return FoxModes.isInMode(fox, FoxMode.FOLLOW) && FoxOwnership.isNearby(fox, target) && !target.isSpectator() && !fox.isPassenger() && !fox.isLeashed();
+		return FoxModes.isInMode(fox, FoxMode.FOLLOW) && FoxOwnership.isNearby(fox, target) && !target.isSpectator() && !fox.isPassenger() && !fox.isLeashed() && !hasEnemy();
+	}
+
+	private boolean hasEnemy() {
+		LivingEntity enemy = fox.getTarget();
+		return enemy != null && enemy.isAlive() && enemy.level() == fox.level();
 	}
 
 	private void teleportNear(BlockPos target) {

@@ -17,12 +17,21 @@ import org.jspecify.annotations.Nullable;
 public final class FoxTargets {
 	public static final TagKey<EntityType<?>> WONT_ATTACK = TagKey.create(Registries.ENTITY_TYPE, FoxyFriends.id("fox_wont_attack"));
 	public static final double CHASE_DISTANCE = 16.0;
+	public static final double OWNER_LEASH_DISTANCE = 24.0;
 
 	private FoxTargets() {
 	}
 
 	public static boolean canDefend(Fox fox) {
-		return FoxOwnership.isTame(fox) && FoxModes.getMode(fox) != FoxMode.SIT;
+		return FoxOwnership.isTame(fox) && FoxModes.getMode(fox) != FoxMode.SIT && !isLeftBehind(fox);
+	}
+
+	public static boolean isLeftBehind(Fox fox) {
+		if (FoxModes.isInMode(fox, FoxMode.FOLLOW)) {
+			LivingEntity owner = FoxOwnership.getOwner(fox);
+			return owner != null && fox.distanceToSqr(owner) > OWNER_LEASH_DISTANCE * OWNER_LEASH_DISTANCE;
+		}
+		return false;
 	}
 
 	public static @Nullable LivingEntity defendedOwner(Fox fox) {
