@@ -52,6 +52,22 @@ public class FoxDefenseGameTests {
 			.thenSucceed();
 	}
 
+	@GameTest(maxTicks = SETTLE_TICKS + IGNORE_TICKS + 20)
+	public void foxIgnoresOwnerHurtingThemselves(GameTestHelper helper) {
+		Villager owner = helper.spawnWithNoFreeWill(EntityTypes.VILLAGER, OWNER_POS);
+		Fox fox = spawnGuard(helper, owner);
+
+		helper.startSequence()
+			.thenIdle(SETTLE_TICKS)
+			.thenExecute(() -> {
+				owner.hurtServer(helper.getLevel(), helper.getLevel().damageSources().explosion(null, owner), 1.0F);
+				owner.setLastHurtMob(owner);
+			})
+			.thenIdle(IGNORE_TICKS)
+			.thenExecute(() -> helper.assertTrue(fox.getTarget() == null, "fox should not attack an owner who hurt themselves"))
+			.thenSucceed();
+	}
+
 	@GameTest(maxTicks = SETTLE_TICKS * 3 + IGNORE_TICKS + 20)
 	public void modeChangeEndsRetaliation(GameTestHelper helper) {
 		Villager owner = helper.spawnWithNoFreeWill(EntityTypes.VILLAGER, OWNER_POS);

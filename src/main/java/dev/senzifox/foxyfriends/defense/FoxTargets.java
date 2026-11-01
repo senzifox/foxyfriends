@@ -30,7 +30,7 @@ public final class FoxTargets {
 	}
 
 	public static boolean wantsToAttack(@Nullable LivingEntity target, LivingEntity owner) {
-		if (target == null || isProtected(target)) {
+		if (target == null || target == owner || isProtected(target)) {
 			return false;
 		}
 
