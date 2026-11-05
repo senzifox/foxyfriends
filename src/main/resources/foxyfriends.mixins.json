@@ -10,7 +10,8 @@
 		"FoxPanicGoalMixin",
 		"FoxSearchForItemsGoalMixin",
 		"FoxSeekShelterGoalMixin",
-		"FoxSleepGoalMixin"
+		"FoxSleepGoalMixin",
+		"MobMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
