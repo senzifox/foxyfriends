@@ -4,6 +4,7 @@ import dev.senzifox.foxyfriends.client.armor.FoxArmorLayer;
 import dev.senzifox.foxyfriends.client.collar.FoxCollarLayer;
 import dev.senzifox.foxyfriends.client.config.FoxClientConfig;
 import dev.senzifox.foxyfriends.client.health.FoxHealthDisplay;
+import dev.senzifox.foxyfriends.client.pat.FoxPatAnimation;
 import dev.senzifox.foxyfriends.network.FoxVersionCheck;
 import java.util.concurrent.CompletableFuture;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,6 +17,7 @@ public class FoxyFriendsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		FoxClientConfig.init();
 		FoxHealthDisplay.init();
+		FoxPatAnimation.init();
 		ClientLoginNetworking.registerGlobalReceiver(FoxVersionCheck.CHANNEL, (client, listener, buf, callbacks) -> CompletableFuture.completedFuture(FoxVersionCheck.writeVersion()));
 		LivingEntityRenderLayerRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 			if (entityRenderer instanceof FoxRenderer foxRenderer) {

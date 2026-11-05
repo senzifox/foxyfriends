@@ -1,40 +1,72 @@
 package dev.senzifox.foxyfriends.pat;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import java.util.UUID;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.entity.player.Player;
 import org.jspecify.annotations.Nullable;
 
 public final class FoxPatting {
 	private static final int COOLDOWN_TICKS = 10;
+	private static final String FOX_AT_HEART_NAME = "senzifox";
+	private static final UUID FOX_AT_HEART_ID = UUID.fromString("31351c6b-0fa4-46ae-8ae2-912bb3dab8ac");
 	private static final AttachmentType<Long> LAST_PAT = AttachmentRegistry.create(FoxyFriends.id("last_pat"));
 
 	private FoxPatting() {
 	}
 
+	public static void init() {
+		PayloadTypeRegistry.clientboundPlay().register(FoxPatPayload.TYPE, FoxPatPayload.STREAM_CODEC);
+		UseEntityCallback.EVENT.register((player, level, hand, entity, hitResult) ->
+			entity instanceof Player patted && isFoxAtHeart(patted) && isPatGesture(player, hand) ? pat(patted) : InteractionResult.PASS);
+	}
+
 	public static @Nullable InteractionResult interact(Fox fox, Player player, InteractionHand hand) {
-		if (hand != InteractionHand.MAIN_HAND || !player.isSecondaryUseActive() || !player.getMainHandItem().isEmpty()) {
+		if (!isPatGesture(player, hand)) {
 			return null;
 		}
 
-		if (fox.level() instanceof ServerLevel level && isCooledDown(fox, level)) {
-			fox.setAttached(LAST_PAT, level.getGameTime());
-			level.sendParticles(ParticleTypes.HEART, fox.getX(), fox.getY(0.8), fox.getZ(), 2, 0.25, 0.15, 0.25, 0.0);
-			fox.playSound(SoundEvents.FOX_AMBIENT, 0.8F, 1.2F);
+		return pat(fox);
+	}
+
+	private static boolean isPatGesture(Player player, InteractionHand hand) {
+		return hand == InteractionHand.MAIN_HAND && player.isSecondaryUseActive() && player.getMainHandItem().isEmpty();
+	}
+
+	private static boolean isFoxAtHeart(Player player) {
+		return FOX_AT_HEART_NAME.equalsIgnoreCase(player.getGameProfile().name()) || FOX_AT_HEART_ID.equals(player.getUUID());
+	}
+
+	private static InteractionResult pat(Entity patted) {
+		if (patted.level() instanceof ServerLevel level && isCooledDown(patted, level)) {
+			patted.setAttached(LAST_PAT, level.getGameTime());
+			level.sendParticles(ParticleTypes.HEART, patted.getX(), patted.getY(0.8), patted.getZ(), 2, 0.25, 0.15, 0.25, 0.0);
+			patted.playSound(SoundEvents.FOX_AMBIENT, 0.8F, 1.2F);
+			FoxPatPayload payload = new FoxPatPayload(patted.getId());
+			PlayerLookup.tracking(patted).forEach(tracking -> ServerPlayNetworking.send(tracking, payload));
+			if (patted instanceof ServerPlayer self) {
+				ServerPlayNetworking.send(self, payload);
+			}
 		}
 
 		return InteractionResult.SUCCESS;
 	}
 
-	private static boolean isCooledDown(Fox fox, ServerLevel level) {
-		Long last = fox.getAttached(LAST_PAT);
+	private static boolean isCooledDown(Entity patted, ServerLevel level) {
+		Long last = patted.getAttached(LAST_PAT);
 		return last == null || level.getGameTime() - last >= COOLDOWN_TICKS;
 	}
 }
