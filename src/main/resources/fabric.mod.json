@@ -21,6 +21,9 @@
 		],
 		"client": [
 			"dev.senzifox.foxyfriends.client.FoxyFriendsClient"
+		],
+		"modmenu": [
+			"dev.senzifox.foxyfriends.client.config.FoxyFriendsModMenu"
 		]
 	},
 	"mixins": [
@@ -35,6 +38,10 @@
 		"minecraft": "~26.3",
 		"java": ">=25",
 		"fabric-api": ">=0.165.0"
+	},
+	"suggests": {
+		"modmenu": "*",
+		"yet_another_config_lib_v3": "*"
 	},
 	"custom": {
 		"modmenu": {

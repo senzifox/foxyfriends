@@ -19,6 +19,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class FoxConfig {
@@ -26,13 +27,14 @@ public final class FoxConfig {
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve(FoxyFriends.MOD_ID + ".json");
 
-	private static FoxyFriendsConfig current = FoxyFriendsConfig.DEFAULT;
+	private static volatile FoxyFriendsConfig current = FoxyFriendsConfig.DEFAULT;
 
 	private FoxConfig() {
 	}
 
 	public static void init() {
-		ServerLifecycleEvents.SERVER_STARTING.register(server -> load().ifError(error -> LOGGER.error("FoxyFriends config not loaded, keeping previous values: {}", error.message())));
+		loadOrLog();
+		ServerLifecycleEvents.SERVER_STARTING.register(server -> loadOrLog());
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(
 			Commands.literal(FoxyFriends.MOD_ID)
 				.requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
@@ -42,6 +44,14 @@ public final class FoxConfig {
 
 	public static FoxyFriendsConfig get() {
 		return current;
+	}
+
+	public static void update(FoxyFriendsConfig config, @Nullable MinecraftServer server) {
+		current = config;
+		write(config);
+		if (server != null) {
+			server.execute(() -> applyToLoadedFoxes(server));
+		}
 	}
 
 	public static DataResult<FoxyFriendsConfig> parse(String json) {
@@ -64,6 +74,10 @@ public final class FoxConfig {
 		applyToLoadedFoxes(source.getServer());
 		source.sendSuccess(() -> Component.translatable("commands.foxyfriends.reload.success"), true);
 		return 1;
+	}
+
+	private static void loadOrLog() {
+		load().ifError(error -> LOGGER.error("FoxyFriends config not loaded, keeping previous values: {}", error.message()));
 	}
 
 	private static DataResult<FoxyFriendsConfig> load() {
