@@ -13,6 +13,7 @@ import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.gamerules.GameRules;
 import org.jspecify.annotations.Nullable;
 
 public final class FoxOwnership {
@@ -36,7 +37,7 @@ public final class FoxOwnership {
 
 	private static void announceDeath(Fox fox, ServerLevel level) {
 		EntityReference<LivingEntity> reference = getOwnerReference(fox);
-		if (reference == null) {
+		if (reference == null || !level.getGameRules().get(GameRules.SHOW_DEATH_MESSAGES)) {
 			return;
 		}
 
