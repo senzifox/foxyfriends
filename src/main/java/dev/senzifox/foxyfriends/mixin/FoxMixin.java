@@ -14,14 +14,17 @@ import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.function.Predicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -30,9 +33,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Fox.class)
-public abstract class FoxMixin extends Animal {
+public abstract class FoxMixin extends Animal implements OwnableEntity {
 	protected FoxMixin(EntityType<? extends Animal> type, Level level) {
 		super(type, level);
+	}
+
+	@Override
+	public @Nullable EntityReference<LivingEntity> getOwnerReference() {
+		return FoxOwnership.getOwnerReference((Fox) (Object) this);
 	}
 
 	@Inject(method = "registerGoals", at = @At("TAIL"))
