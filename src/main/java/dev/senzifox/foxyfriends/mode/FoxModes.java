@@ -6,6 +6,7 @@ import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityLevelChangeEvents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -27,6 +28,11 @@ public final class FoxModes {
 	}
 
 	public static void init() {
+		ServerEntityLevelChangeEvents.AFTER_ENTITY_CHANGE_LEVEL.register((original, copy, origin, destination) -> {
+			if (copy instanceof Fox fox && isInMode(fox, FoxMode.WANDER)) {
+				fox.setHomeTo(fox.blockPosition(), WANDER_RADIUS);
+			}
+		});
 	}
 
 	public static FoxMode getMode(Fox fox) {
