@@ -22,7 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import org.jspecify.annotations.Nullable;
 
 public final class FoxPatting {
-	private static final int COOLDOWN_TICKS = 10;
+	private static final int COOLDOWN_TICKS = 5;
 	private static final int CALM_TICKS = 100;
 	private static final String FOX_AT_HEART_NAME = "senzifox";
 	private static final UUID FOX_AT_HEART_ID = UUID.fromString("31351c6b-0fa4-46ae-8ae2-912bb3dab8ac");
