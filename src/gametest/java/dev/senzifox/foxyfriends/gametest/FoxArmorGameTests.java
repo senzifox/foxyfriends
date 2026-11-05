@@ -4,6 +4,7 @@ import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.InteractionHand;
@@ -16,12 +17,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.entity.DispenserBlockEntity;
 import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.phys.Vec3;
 
 public class FoxArmorGameTests {
 	private static final BlockPos FOX_POS = new BlockPos(1, 0, 1);
+	private static final BlockPos BABY_POS = new BlockPos(1, 0, 4);
+	private static final int DISPENSE_TICKS = 10;
 
 	@GameTest
 	public void strangerCannotPutArmorOnFox(GameTestHelper helper) {
@@ -75,6 +81,40 @@ public class FoxArmorGameTests {
 		helper.succeed();
 	}
 
+	@GameTest
+	public void dispenserDressesTamedAdultFox(GameTestHelper helper) {
+		Fox fox = spawnTame(helper, helper.makeMockPlayer(GameType.SURVIVAL));
+		fox.setNoAi(true);
+
+		DispenserBlockEntity dispenser = dispense(helper, FOX_POS, FoxArmor.IRON_FOX_ARMOR);
+
+		helper.runAfterDelay(DISPENSE_TICKS, () -> {
+			helper.assertTrue(dispenser.isEmpty(), "dispenser should fire");
+			helper.assertTrue(fox.getBodyArmorItem().is(FoxArmor.IRON_FOX_ARMOR), "fox should wear iron armor");
+			helper.succeed();
+		});
+	}
+
+	@GameTest
+	public void dispenserSkipWildAndBabyFoxes(GameTestHelper helper) {
+		Fox wild = spawnAdult(helper);
+		wild.setNoAi(true);
+		Fox baby = helper.spawn(EntityTypes.FOX, BABY_POS);
+		baby.setBaby(true);
+		baby.setNoAi(true);
+		FoxOwnership.tame(baby, helper.makeMockPlayer(GameType.SURVIVAL));
+
+		DispenserBlockEntity wildDispenser = dispense(helper, FOX_POS, FoxArmor.IRON_FOX_ARMOR);
+		DispenserBlockEntity babyDispenser = dispense(helper, BABY_POS, FoxArmor.IRON_FOX_ARMOR);
+
+		helper.runAfterDelay(DISPENSE_TICKS, () -> {
+			helper.assertTrue(wildDispenser.isEmpty() && babyDispenser.isEmpty(), "dispensers should fire");
+			assertBare(helper, wild);
+			assertBare(helper, baby);
+			helper.succeed();
+		});
+	}
+
 	private static Fox spawnAdult(GameTestHelper helper) {
 		Fox fox = helper.spawn(EntityTypes.FOX, FOX_POS);
 		fox.setAge(0);
@@ -95,5 +135,14 @@ public class FoxArmorGameTests {
 		player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(item));
 		player.interactOn(fox, InteractionHand.MAIN_HAND, Vec3.ZERO);
 		return player.getItemInHand(InteractionHand.MAIN_HAND);
+	}
+
+	private static DispenserBlockEntity dispense(GameTestHelper helper, BlockPos target, Item item) {
+		BlockPos pos = target.west();
+		helper.setBlock(pos, Blocks.DISPENSER.defaultBlockState().setValue(DispenserBlock.FACING, Direction.EAST));
+		DispenserBlockEntity dispenser = helper.getBlockEntity(pos, DispenserBlockEntity.class);
+		dispenser.setItem(0, new ItemStack(item));
+		helper.setBlock(pos.above(), Blocks.REDSTONE_BLOCK);
+		return dispenser;
 	}
 }

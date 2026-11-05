@@ -15,6 +15,7 @@ import java.util.function.Predicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
@@ -54,6 +55,13 @@ public abstract class FoxMixin extends Animal {
 	private void foxyfriends$keepArmorOutOfMouth(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
 		if (FoxArmor.isFoxArmor(stack)) {
 			cir.setReturnValue(false);
+		}
+	}
+
+	@Inject(method = "canDispenserEquipIntoSlot", at = @At("HEAD"), cancellable = true)
+	private void foxyfriends$dispenseArmorOntoTamedAdults(EquipmentSlot slot, CallbackInfoReturnable<Boolean> cir) {
+		if (slot == EquipmentSlot.BODY) {
+			cir.setReturnValue(FoxOwnership.isTame((Fox) (Object) this) && !isBaby());
 		}
 	}
 
