@@ -30,8 +30,9 @@ public final class FoxConfigScreen {
 	private float regenAmount;
 	private int regenIntervalTicks;
 	private int regenCalmTicks;
+	private boolean healthActionbar;
 
-	private FoxConfigScreen(FoxyFriendsConfig config) {
+	private FoxConfigScreen(FoxyFriendsConfig config, FoxyFriendsClientConfig clientConfig) {
 		wanderHunting = config.wanderHunting();
 		wildTameChance = config.wildTameChance();
 		tamedMaxHealth = config.tamedMaxHealth();
@@ -39,17 +40,18 @@ public final class FoxConfigScreen {
 		regenAmount = config.regenAmount();
 		regenIntervalTicks = config.regenIntervalTicks();
 		regenCalmTicks = config.regenCalmTicks();
+		healthActionbar = clientConfig.healthActionbar();
 	}
 
 	public static Screen create(Screen parent) {
-		return new FoxConfigScreen(FoxConfig.get()).build().generateScreen(parent);
+		return new FoxConfigScreen(FoxConfig.get(), FoxClientConfig.get()).build().generateScreen(parent);
 	}
 
 	private YetAnotherConfigLib build() {
 		return YetAnotherConfigLib.createBuilder()
 			.title(Component.translatable("config.foxyfriends.title"))
 			.category(ConfigCategory.createBuilder()
-				.name(Component.translatable("config.foxyfriends.category.foxes"))
+				.name(Component.translatable("config.foxyfriends.category.server"))
 				.group(OptionGroup.createBuilder()
 					.name(Component.translatable("config.foxyfriends.group.behaviour"))
 					.option(option("wander_hunting", DEFAULT.wanderHunting(), () -> wanderHunting, value -> wanderHunting = value, TickBoxControllerBuilder::create))
@@ -73,6 +75,10 @@ public final class FoxConfigScreen {
 						opt -> IntegerFieldControllerBuilder.create(opt).range(0, 72000)))
 					.build())
 				.build())
+			.category(ConfigCategory.createBuilder()
+				.name(Component.translatable("config.foxyfriends.category.client"))
+				.option(option("health_actionbar", FoxyFriendsClientConfig.DEFAULT.healthActionbar(), () -> healthActionbar, value -> healthActionbar = value, TickBoxControllerBuilder::create))
+				.build())
 			.save(this::save)
 			.build();
 	}
@@ -80,6 +86,7 @@ public final class FoxConfigScreen {
 	private void save() {
 		FoxyFriendsConfig config = new FoxyFriendsConfig(wanderHunting, wildTameChance, tamedMaxHealth, tamedAttackDamage, regenAmount, regenIntervalTicks, regenCalmTicks);
 		FoxConfig.update(config, Minecraft.getInstance().getSingleplayerServer());
+		FoxClientConfig.update(new FoxyFriendsClientConfig(healthActionbar));
 	}
 
 	private static <T> Option<T> option(
