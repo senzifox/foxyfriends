@@ -1,6 +1,8 @@
 package dev.senzifox.foxyfriends.care;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.config.FoxConfig;
+import dev.senzifox.foxyfriends.config.FoxyFriendsConfig;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.minecraft.core.Holder;
@@ -10,6 +12,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -21,23 +24,20 @@ import net.minecraft.world.item.ItemStack;
 import org.jspecify.annotations.Nullable;
 
 public final class FoxCare {
-	public static final double TAMED_MAX_HEALTH = 25.0;
-	public static final double TAMED_ATTACK_DAMAGE = 3.0;
 	public static final TagKey<Item> HEALING_FOOD = TagKey.create(Registries.ITEM, FoxyFriends.id("fox_healing_food"));
-	public static final int REGEN_INTERVAL_TICKS = 600;
-	public static final int CALM_TICKS = 200;
-	private static final float REGEN_AMOUNT = 1.0F;
 	private static final float FALLBACK_HEAL = 1.0F;
 
 	private FoxCare() {
 	}
 
 	public static void init() {
-		ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {
-			if (entity instanceof Fox fox && FoxOwnership.isTame(fox)) {
-				applyTamedStats(fox);
-			}
-		});
+		ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> refreshTamedStats(entity));
+	}
+
+	public static void refreshTamedStats(Entity entity) {
+		if (entity instanceof Fox fox && FoxOwnership.isTame(fox)) {
+			applyTamedStats(fox);
+		}
 	}
 
 	public static void onTamed(Fox fox) {
@@ -50,8 +50,9 @@ public final class FoxCare {
 			return;
 		}
 
-		if (fox.tickCount % REGEN_INTERVAL_TICKS == 0 && fox.isAlive() && isWounded(fox) && fox.getLastDamageSource(CALM_TICKS) == null) {
-			fox.heal(REGEN_AMOUNT);
+		FoxyFriendsConfig config = FoxConfig.get();
+		if (fox.tickCount % config.regenIntervalTicks() == 0 && fox.isAlive() && isWounded(fox) && fox.getLastDamageSource(config.regenCalmTicks()) == null) {
+			fox.heal(config.regenAmount());
 		}
 	}
 
@@ -76,13 +77,14 @@ public final class FoxCare {
 	}
 
 	private static void applyTamedStats(Fox fox) {
-		raiseBase(fox, Attributes.MAX_HEALTH, TAMED_MAX_HEALTH);
-		raiseBase(fox, Attributes.ATTACK_DAMAGE, TAMED_ATTACK_DAMAGE);
+		FoxyFriendsConfig config = FoxConfig.get();
+		setBase(fox, Attributes.MAX_HEALTH, config.tamedMaxHealth());
+		setBase(fox, Attributes.ATTACK_DAMAGE, config.tamedAttackDamage());
 	}
 
-	private static void raiseBase(Fox fox, Holder<Attribute> attribute, double value) {
+	private static void setBase(Fox fox, Holder<Attribute> attribute, double value) {
 		AttributeInstance instance = fox.getAttribute(attribute);
-		if (instance != null && instance.getBaseValue() < value) {
+		if (instance != null && instance.getBaseValue() != value) {
 			instance.setBaseValue(value);
 		}
 	}

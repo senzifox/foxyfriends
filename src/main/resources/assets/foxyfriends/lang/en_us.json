@@ -1,4 +1,6 @@
 {
+  "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
+  "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "message.foxyfriends.mode.follow": "%s is following you",
   "message.foxyfriends.mode.sit": "%s is sitting",
   "message.foxyfriends.mode.wander": "%s is wandering around",

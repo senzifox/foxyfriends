@@ -1,4 +1,6 @@
 {
+  "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
+  "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "message.foxyfriends.mode.follow": "%s следует за тобой",
   "message.foxyfriends.mode.sit": "%s сидит",
   "message.foxyfriends.mode.wander": "%s гуляет поблизости",

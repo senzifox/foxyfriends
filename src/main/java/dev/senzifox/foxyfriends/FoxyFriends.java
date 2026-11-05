@@ -3,6 +3,7 @@ package dev.senzifox.foxyfriends;
 import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.collar.FoxCollar;
+import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.network.FoxVersionCheck;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
@@ -14,6 +15,7 @@ public class FoxyFriends implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		FoxConfig.init();
 		FoxOwnership.init();
 		FoxModes.init();
 		FoxCare.init();

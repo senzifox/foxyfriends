@@ -1,6 +1,7 @@
 package dev.senzifox.foxyfriends.mode;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
@@ -44,7 +45,7 @@ public final class FoxModes {
 	}
 
 	public static boolean canHunt(Fox fox) {
-		return !FoxOwnership.isTame(fox) || getMode(fox) == FoxMode.WANDER;
+		return !FoxOwnership.isTame(fox) || getMode(fox) == FoxMode.WANDER && FoxConfig.get().wanderHunting();
 	}
 
 	public static void setMode(Fox fox, FoxMode mode) {
