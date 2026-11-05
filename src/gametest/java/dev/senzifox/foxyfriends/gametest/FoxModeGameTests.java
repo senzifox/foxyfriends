@@ -46,6 +46,19 @@ public class FoxModeGameTests {
 	}
 
 	@GameTest
+	public void sneakClickPatsInsteadOfCommanding(GameTestHelper helper) {
+		Fox fox = helper.spawn(EntityTypes.FOX, FOX_POS);
+		Player owner = helper.makeMockPlayer(GameType.SURVIVAL);
+		FoxOwnership.tame(fox, owner);
+		owner.setShiftKeyDown(true);
+
+		click(fox, owner, ItemStack.EMPTY);
+
+		helper.assertValueEqual(FoxModes.getMode(fox), FoxMode.FOLLOW, "mode");
+		helper.succeed();
+	}
+
+	@GameTest
 	public void modeSurvivesSaveAndLoad(GameTestHelper helper) {
 		Fox fox = helper.spawn(EntityTypes.FOX, FOX_POS);
 		FoxOwnership.tame(fox, helper.makeMockPlayer(GameType.SURVIVAL));

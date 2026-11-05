@@ -73,7 +73,7 @@ public final class FoxModes {
 	}
 
 	public static @Nullable InteractionResult interact(Fox fox, Player player, InteractionHand hand) {
-		if (hand != InteractionHand.MAIN_HAND || !player.getItemInHand(hand).isEmpty() || !FoxOwnership.isOwnedBy(fox, player)) {
+		if (hand != InteractionHand.MAIN_HAND || player.isSecondaryUseActive() || !player.getItemInHand(hand).isEmpty() || !FoxOwnership.isOwnedBy(fox, player)) {
 			return null;
 		}
 
