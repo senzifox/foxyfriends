@@ -4,6 +4,7 @@ import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
 import dev.senzifox.foxyfriends.mode.FoxMode;
 import dev.senzifox.foxyfriends.mode.FoxModes;
+import dev.senzifox.foxyfriends.pat.FoxPatting;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.DamageTypeTags;
@@ -42,7 +43,7 @@ public final class FoxTargets {
 		if (source == null) {
 			return false;
 		}
-		return source.is(DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES) || source.getEntity() instanceof LivingEntity attacker && isProtected(attacker);
+		return source.is(DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES) || !FoxPatting.isCalm(fox) && source.getEntity() instanceof LivingEntity attacker && isProtected(attacker);
 	}
 
 	public static void standGround(Fox fox) {
@@ -50,7 +51,7 @@ public final class FoxTargets {
 	}
 
 	public static @Nullable LivingEntity defendedOwner(Fox fox) {
-		return canDefend(fox) ? FoxOwnership.getOwner(fox) : null;
+		return canDefend(fox) && !FoxPatting.isCalm(fox) ? FoxOwnership.getOwner(fox) : null;
 	}
 
 	public static boolean wantsToAttack(@Nullable LivingEntity target, LivingEntity owner) {

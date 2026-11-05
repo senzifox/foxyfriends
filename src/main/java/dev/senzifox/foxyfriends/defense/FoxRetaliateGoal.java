@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends.defense;
 
+import dev.senzifox.foxyfriends.pat.FoxPatting;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -17,6 +18,7 @@ public class FoxRetaliateGoal extends HurtByTargetGoal {
 	public boolean canUse() {
 		LivingEntity attacker = fox.getLastHurtByMob();
 		return FoxOwnership.isTame(fox)
+			&& !FoxPatting.isCalm(fox)
 			&& !FoxTargets.isLeftBehind(fox)
 			&& attacker != null
 			&& !FoxOwnership.isOwnedBy(fox, attacker)

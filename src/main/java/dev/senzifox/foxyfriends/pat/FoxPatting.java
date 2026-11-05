@@ -1,6 +1,8 @@
 package dev.senzifox.foxyfriends.pat;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.mixin.FoxAccessor;
+import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.UUID;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
@@ -21,9 +23,11 @@ import org.jspecify.annotations.Nullable;
 
 public final class FoxPatting {
 	private static final int COOLDOWN_TICKS = 10;
+	private static final int CALM_TICKS = 100;
 	private static final String FOX_AT_HEART_NAME = "senzifox";
 	private static final UUID FOX_AT_HEART_ID = UUID.fromString("31351c6b-0fa4-46ae-8ae2-912bb3dab8ac");
 	private static final AttachmentType<Long> LAST_PAT = AttachmentRegistry.create(FoxyFriends.id("last_pat"));
+	private static final AttachmentType<Long> CALM_UNTIL = AttachmentRegistry.create(FoxyFriends.id("calm_until"));
 
 	private FoxPatting() {
 	}
@@ -39,7 +43,16 @@ public final class FoxPatting {
 			return null;
 		}
 
+		if (FoxOwnership.isOwnedBy(fox, player) && !fox.level().isClientSide()) {
+			calm(fox);
+		}
+
 		return pat(fox);
+	}
+
+	public static boolean isCalm(Fox fox) {
+		Long until = fox.getAttached(CALM_UNTIL);
+		return until != null && fox.level().getGameTime() < until;
 	}
 
 	private static boolean isPatGesture(Player player, InteractionHand hand) {
@@ -63,6 +76,21 @@ public final class FoxPatting {
 		}
 
 		return InteractionResult.SUCCESS;
+	}
+
+	private static void calm(Fox fox) {
+		if (fox.isSleeping()) {
+			return;
+		}
+
+		fox.setAttached(CALM_UNTIL, fox.level().getGameTime() + CALM_TICKS);
+		fox.getNavigation().stop();
+		fox.setLastHurtByMob(null);
+		fox.setTarget(null);
+		fox.setIsCrouching(false);
+		fox.setIsInterested(false);
+		fox.setIsPouncing(false);
+		((FoxAccessor) fox).foxyfriends$setDefending(false);
 	}
 
 	private static boolean isCooledDown(Entity patted, ServerLevel level) {
