@@ -16,6 +16,9 @@ English | [Русский](README.ru.md)
 - **Modes** - right-click your fox with an empty hand to switch between *Follow* (wow), *Sit* (dozes off when calm and sheltered) and *Wander* (roams around its home point, behavior mostly like vanilla)
 - **Defense** - defends you from anyone who hurts you, joins your fights and strikes back when attacked
 - **Care** - 25 hp and 3 attack dmg, anyone can heal it with meat, fish or berries, and it slowly regenerates when left alone
+- **Petting** - sneak and right-click any fox with an empty hand, your own fox calms down and stays out of fights for a few seconds
+- **Drop it** - sneak and right-click your fox with an empty hand to take whatever it holds in its mouth
+- **Health** - look at your fox to see its health above the hotbar
 - **Breeding** - a baby of two tamed foxes is born tamed to whoever fed the first parent, with one tamed parent it's a coin flip
 - **Collar** - use any dye on your fox to recolor its collar
 - **Armor** - leather, copper, iron, golden, diamond or netherite, right-click an adult fox with it to put it on, shears to take it off
@@ -46,6 +49,14 @@ Leather armor can be dyed and washed in a cauldron, it also keeps a fox warm in 
 | `#foxyfriends:fox_wont_attack` | entities tamed foxes never attack |
 
 </details>
+<details>
+<summary>Config</summary>
+
+`config/foxyfriends.json` on the server - Wander hunting, wild taming chance, tamed fox health, damage and regeneration, `/foxyfriends reload`  
+`config/foxyfriends-client.json` on the client - fox health above the hotbar  
+With [Mod Menu](https://modrinth.com/mod/modmenu) and [YACL](https://modrinth.com/mod/yacl) both can be edited in game
+
+</details>
 
 ## Requirements
 
@@ -54,6 +65,7 @@ Leather armor can be dyed and washed in a cauldron, it also keeps a fox warm in 
 | 26.3      | 0.20.1+       | 0.165.0+   | 25+  |
 
 The mod and [Fabric API](https://modrinth.com/mod/fabric-api) are needed on both server and client sides  
+[Mod Menu](https://modrinth.com/mod/modmenu) and [YACL](https://modrinth.com/mod/yacl) are optional, client only, for the config screen  
 Build with `./gradlew build`, jar in `build/libs/`
 
 ## Feedback
