@@ -4,6 +4,7 @@ import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.collar.FoxCollar;
 import dev.senzifox.foxyfriends.mode.FoxModes;
+import dev.senzifox.foxyfriends.mouth.FoxMouth;
 import dev.senzifox.foxyfriends.taming.FoxTaming;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -31,6 +32,10 @@ public abstract class AnimalMixin {
 
 			if (result == null) {
 				result = FoxArmor.interact(fox, player, hand);
+			}
+
+			if (result == null) {
+				result = FoxMouth.interact(fox, player, hand);
 			}
 
 			if (result == null) {
