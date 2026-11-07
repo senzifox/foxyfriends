@@ -1,6 +1,7 @@
 package dev.senzifox.foxyfriends.client.health;
 
 import dev.senzifox.foxyfriends.client.config.FoxClientConfig;
+import dev.senzifox.foxyfriends.client.mixin.HudAccessor;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.Comparator;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -15,6 +16,8 @@ import org.jspecify.annotations.Nullable;
 public final class FoxHealthDisplay {
 	private static final double HURT_RANGE = 32.0;
 
+	private static @Nullable Component lastHealthLine;
+
 	private FoxHealthDisplay() {
 	}
 
@@ -28,10 +31,19 @@ public final class FoxHealthDisplay {
 			return;
 		}
 
+		if (otherMessageShown((HudAccessor) minecraft.gui.hud)) {
+			return;
+		}
+
 		Fox fox = foxToShow(minecraft, player);
 		if (fox != null) {
-			minecraft.gui.hud.setOverlayMessage(healthLine(fox), false);
+			lastHealthLine = healthLine(fox);
+			minecraft.gui.hud.setOverlayMessage(lastHealthLine, false);
 		}
+	}
+
+	private static boolean otherMessageShown(HudAccessor hud) {
+		return hud.foxyfriends$overlayMessageTime() > 0 && hud.foxyfriends$overlayMessage() != lastHealthLine;
 	}
 
 	private static @Nullable Fox foxToShow(Minecraft minecraft, LocalPlayer player) {

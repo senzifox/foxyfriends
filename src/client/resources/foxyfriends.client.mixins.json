@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_25",
 	"client": [
 		"AvatarRendererMixin",
-		"FoxRendererMixin"
+		"FoxRendererMixin",
+		"HudAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
