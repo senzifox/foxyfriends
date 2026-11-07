@@ -72,7 +72,7 @@ public final class FoxArmor {
 		Equippable equippable = stack.get(DataComponents.EQUIPPABLE);
 		return equippable != null
 			&& equippable.slot() == EquipmentSlot.BODY
-			&& equippable.canBeEquippedBy(EntityTypes.FOX.builtInRegistryHolder());
+			&& equippable.canBeEquippedBy(BuiltInRegistries.ENTITY_TYPE.wrapAsHolder(EntityTypes.FOX));
 	}
 
 	private static Item register(String name, ArmorMaterial material, Item.Properties properties) {
