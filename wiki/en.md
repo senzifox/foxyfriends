@@ -1,4 +1,4 @@
-# FoxyFriends
+# FoxyFriends wiki
 English | [Русский](ru.md)
 
 ## Contents

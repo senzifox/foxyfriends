@@ -1,4 +1,4 @@
-# FoxyFriends
+# FoxyFriends вики
 [English](en.md) | Русский
 
 ## Содержание
