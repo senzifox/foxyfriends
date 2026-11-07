@@ -2,6 +2,7 @@ package dev.senzifox.foxyfriends.armor;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
+import java.util.List;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -25,6 +26,7 @@ import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 import net.minecraft.world.item.equipment.Equippable;
+import net.minecraft.world.level.ItemLike;
 import org.jspecify.annotations.Nullable;
 
 public final class FoxArmor {
@@ -34,20 +36,20 @@ public final class FoxArmor {
 	public static final Item GOLDEN_FOX_ARMOR = register("golden_fox_armor", ArmorMaterials.GOLD, new Item.Properties());
 	public static final Item DIAMOND_FOX_ARMOR = register("diamond_fox_armor", ArmorMaterials.DIAMOND, new Item.Properties());
 	public static final Item NETHERITE_FOX_ARMOR = register("netherite_fox_armor", ArmorMaterials.NETHERITE, new Item.Properties().fireResistant());
+	private static final List<Item> ITEMS = List.of(
+		LEATHER_FOX_ARMOR,
+		COPPER_FOX_ARMOR,
+		IRON_FOX_ARMOR,
+		GOLDEN_FOX_ARMOR,
+		DIAMOND_FOX_ARMOR,
+		NETHERITE_FOX_ARMOR
+	);
 
 	private FoxArmor() {
 	}
 
 	public static void init() {
-		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> output.insertAfter(
-			Items.WOLF_ARMOR,
-			LEATHER_FOX_ARMOR,
-			COPPER_FOX_ARMOR,
-			IRON_FOX_ARMOR,
-			GOLDEN_FOX_ARMOR,
-			DIAMOND_FOX_ARMOR,
-			NETHERITE_FOX_ARMOR
-		));
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> output.insertAfter(Items.WOLF_ARMOR, ITEMS.toArray(ItemLike[]::new)));
 	}
 
 	public static @Nullable InteractionResult interact(Fox fox, Player player, InteractionHand hand) {
@@ -73,6 +75,10 @@ public final class FoxArmor {
 		return equippable != null
 			&& equippable.slot() == EquipmentSlot.BODY
 			&& equippable.canBeEquippedBy(BuiltInRegistries.ENTITY_TYPE.wrapAsHolder(EntityTypes.FOX));
+	}
+
+	public static boolean isOwnArmor(ItemStack stack) {
+		return ITEMS.contains(stack.getItem());
 	}
 
 	private static Item register(String name, ArmorMaterial material, Item.Properties properties) {
