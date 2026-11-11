@@ -6,8 +6,8 @@
 
 [English](README.md) | Русский
 
-<a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src=".github/badges/curseforge-available-ru.svg" alt="Доступно на CurseForge"></a><br>
-<a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src="https://img.shields.io/curseforge/dt/1775645?style=for-the-badge&label=%D1%81%D0%BA%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9&color=f16436" alt="Скачиваний на CurseForge" width="171"></a>
+<a href="https://modrinth.com/mod/foxyfriends"><img src=".github/badges/modrinth-available-ru.svg" alt="Доступно на Modrinth"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src=".github/badges/curseforge-available-ru.svg" alt="Доступно на CurseForge"></a><br>
+<a href="https://modrinth.com/mod/foxyfriends"><img src="https://img.shields.io/modrinth/dt/foxyfriends?style=for-the-badge&label=%D1%81%D0%BA%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9&color=00d845" alt="Скачиваний на Modrinth" width="167"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src="https://img.shields.io/curseforge/dt/1775645?style=for-the-badge&label=%D1%81%D0%BA%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9&color=f16436" alt="Скачиваний на CurseForge" width="171"></a>
 
 > Мод на ранней стадии разработки, возможности и баланс могут меняться от версии к версии
 

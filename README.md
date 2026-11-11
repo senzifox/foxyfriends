@@ -6,8 +6,8 @@ Make foxes your friends
 
 English | [Русский](README.ru.md)
 
-<a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src=".github/badges/curseforge-available.svg" alt="Available on CurseForge"></a><br>
-<a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src="https://img.shields.io/curseforge/dt/1775645?style=for-the-badge&color=f16436" alt="Downloads on CurseForge" width="171"></a>
+<a href="https://modrinth.com/mod/foxyfriends"><img src=".github/badges/modrinth-available.svg" alt="Available on Modrinth"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src=".github/badges/curseforge-available.svg" alt="Available on CurseForge"></a><br>
+<a href="https://modrinth.com/mod/foxyfriends"><img src="https://img.shields.io/modrinth/dt/foxyfriends?style=for-the-badge&color=00d845" alt="Downloads on Modrinth" width="164"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/foxyfriends"><img src="https://img.shields.io/curseforge/dt/1775645?style=for-the-badge&color=f16436" alt="Downloads on CurseForge" width="171"></a>
 
 > The mod is in early development, features and balance may change between versions
 
