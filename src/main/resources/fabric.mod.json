@@ -8,7 +8,7 @@
 		"senzifox"
 	],
 	"contact": {
-		"homepage": "https://github.com/senzifox/foxyfriends",
+		"homepage": "https://senzi.dev/foxyfriends",
 		"sources": "https://github.com/senzifox/foxyfriends",
 		"issues": "https://github.com/senzifox/foxyfriends/issues"
 	},
@@ -46,9 +46,9 @@
 	"custom": {
 		"modmenu": {
 			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/foxyfriends",
 				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/foxyfriends",
-				"modmenu.github_releases": "https://github.com/senzifox/foxyfriends/releases",
-				"modmenu.website": "https://senzi.dev/foxyfriends"
+				"modmenu.github_releases": "https://github.com/senzifox/foxyfriends/releases"
 			}
 		}
 	}
