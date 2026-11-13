@@ -26,6 +26,8 @@
   "message.foxyfriends.mode.follow": "%s следует за тобой",
   "message.foxyfriends.mode.sit": "%s сидит",
   "message.foxyfriends.mode.wander": "%s гуляет поблизости",
+  "pack.foxyfriends.he_fox": "FoxyFriends: Он лис",
+  "pack.foxyfriends.he_fox.description": "Ванильная лисица становится лисом",
   "multiplayer.foxyfriends.missing": "Для этого сервера нужен FoxyFriends %s",
   "multiplayer.foxyfriends.version_mismatch": "Для этого сервера нужен FoxyFriends %s, у тебя %s",
   "tag.item.foxyfriends.fox_taming_food": "Корм для приручения лис",

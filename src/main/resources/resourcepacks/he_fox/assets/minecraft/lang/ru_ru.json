@@ -1,0 +1,15 @@
+{
+  "entity.minecraft.fox": "Лис",
+  "item.minecraft.fox_spawn_egg": "Яйцо призыва лиса",
+  "subtitles.entity.fox.aggro": "Лис злится",
+  "subtitles.entity.fox.ambient": "Лис пищит",
+  "subtitles.entity.fox.bite": "Лис кусает",
+  "subtitles.entity.fox.death": "Лис погибает",
+  "subtitles.entity.fox.eat": "Лис ест",
+  "subtitles.entity.fox.hurt": "Лис ранен",
+  "subtitles.entity.fox.screech": "Лис визжит",
+  "subtitles.entity.fox.sleep": "Лис храпит",
+  "subtitles.entity.fox.sniff": "Лис принюхивается",
+  "subtitles.entity.fox.spit": "Лис отплёвывается",
+  "subtitles.entity.fox.teleport": "Лис телепортируется"
+}

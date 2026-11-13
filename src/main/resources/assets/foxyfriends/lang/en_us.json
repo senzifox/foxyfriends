@@ -26,6 +26,8 @@
   "message.foxyfriends.mode.follow": "%s is following you",
   "message.foxyfriends.mode.sit": "%s is sitting",
   "message.foxyfriends.mode.wander": "%s is wandering around",
+  "pack.foxyfriends.he_fox": "FoxyFriends: He's a Fox",
+  "pack.foxyfriends.he_fox.description": "Renames the vanilla «лисица» to «лис»",
   "multiplayer.foxyfriends.missing": "This server requires FoxyFriends %s",
   "multiplayer.foxyfriends.version_mismatch": "This server requires FoxyFriends %s, you have %s",
   "tag.item.foxyfriends.fox_taming_food": "Fox Taming Food",
