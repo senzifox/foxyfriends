@@ -13,7 +13,7 @@ English | [Русский](README.ru.md)
 
 ## Features
 - **Taming** - feed a fox raw chicken, rabbit or fish, a fox that already trusts you is tamed right away, a wild one has a 10% chance
-- **Modes** - right-click your fox with an empty hand to switch between *Follow* (wow), *Sit* (dozes off when calm and sheltered) and *Wander* (roams around its home point, behavior mostly like vanilla)
+- **Commands** - right-click your fox with an empty hand to give it a command: *Follow* (wow), *Sit* (dozes off when calm and sheltered) or *Wander* (roams around its home point, behavior mostly like vanilla)
 - **Defense** - defends you from anyone who hurts you, joins your fights and strikes back when attacked
 - **Care** - 25 hp and 3 attack dmg, anyone can heal it with meat, fish or berries, and it slowly regenerates when left alone
 - **Petting** - sneak and right-click any fox with an empty hand, your own fox calms down and stays out of fights for a few seconds
