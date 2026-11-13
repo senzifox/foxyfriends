@@ -4,7 +4,7 @@ English | [Русский](ru.md)
 ## Contents
 - [Installation](#installation)
 - [Taming](#taming)
-- [Modes](#modes)
+- [Commands](#commands)
 - [Defense](#defense)
 - [Health and healing](#health-and-healing)
 - [Petting](#petting)
@@ -13,7 +13,7 @@ English | [Русский](ru.md)
 - [Collar](#collar)
 - [Armor](#armor)
 - [Config](#config)
-- [Commands](#commands)
+- [Chat commands](#chat-commands)
 - [Data pack tags](#data-pack-tags)
 - [Compatibility](#compatibility)
 
@@ -24,6 +24,7 @@ English | [Русский](ru.md)
 
 The mod and Fabric API are needed on both server and client, if the mod versions don't match, the server won't let you in and tells which version it needs  
 Mod Menu and YACL are optional, client only, needed for the config screen  
+The built-in resource pack "FoxyFriends: He's a Fox" renames the vanilla Russian «лисица» to «лис», enabled by default, can be turned off on the resource packs screen  
 Building from source `./gradlew build` on JDK 25, the jar appears in `build/libs/`
 
 ## Taming
@@ -39,10 +40,10 @@ A fox trusts the player who bred it, as in vanilla
 On taming the fox heals to full, trusts its owner and gets a [collar](#collar)  
 Death of a tamed fox - message to the owner, like with wolves, depends on the `showDeathMessages` game rule
 
-## Modes
-Mode switch - right-click own fox with an empty hand without sneaking, order *Follow* --> *Sit* --> *Wander*, the new mode shows above the hotbar, after taming - *Follow*
+## Commands
+Command - right-click own fox with an empty hand without sneaking, order *Follow* --> *Sit* --> *Wander*, the new command shows above the hotbar, after taming - *Follow*
 
-| action\mode | Follow | Sit | Wander |
+| action\command | Follow | Sit | Wander |
 |-|-|-|-|
 | movement | after the owner | stays put | within 16 blocks of "home" |
 | hunting | no | no | yes (`wander_hunting`) |
@@ -61,7 +62,7 @@ Mode switch - right-click own fox with an empty hand without sneaking, order *Fo
 - gets up in water, on fire, when freezing and under attack, steps away from danger or strikes back then sits down at the new spot
 
 ### Wander
-- home - the spot where the mode was turned on, moves when the leash is removed and when the fox changes dimension
+- home - the spot where the fox started wandering, moves when the leash is removed and when the fox changes dimension
 - behaves like a vanilla fox: sleeps by day, seeks shelter
 - returns when it strays beyond the radius
 
@@ -71,7 +72,7 @@ In *Follow* and *Wander*:
 - attacks the owner's target
 - chases a target up to 16 blocks
 
-In any mode strikes back at whoever hurt it
+Always strikes back at whoever hurt it
 
 Never attacks:
 - its owner
@@ -170,7 +171,7 @@ Recipes unlock in the recipe book on getting the material
 ### Config screen
 Mod Menu --> FoxyFriends, needs Mod Menu and YACL, in singleplayer changes apply right away, on a dedicated server only the local file changes
 
-## Commands
+## Chat commands
 | command | access | description |
 |-|-|-|
 | `/foxyfriends reload` | operators level 2+ | reloads `config/foxyfriends.json` |
