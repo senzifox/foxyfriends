@@ -6,6 +6,7 @@
 		"AnimalMixin",
 		"FoxAccessor",
 		"FoxDefendTrustedTargetGoalMixin",
+		"FoxFollowParentGoalMixin",
 		"FoxMixin",
 		"FoxPanicGoalMixin",
 		"FoxSearchForItemsGoalMixin",

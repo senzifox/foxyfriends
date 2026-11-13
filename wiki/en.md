@@ -109,7 +109,8 @@ With berries as in vanilla
 | one tamed | tamed to the same player with a 50% chance |
 | both wild | wild |
 
-Tamed foxes can only be bred at full health, otherwise healing
+Tamed foxes can only be bred at full health, otherwise healing  
+A tamed baby follows adult foxes only in *Wander*
 
 ## Collar
 All tamed foxes have one, babies included, default color - red, the owner recolors it with any dye
