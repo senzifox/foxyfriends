@@ -20,7 +20,7 @@
   "config.foxyfriends.tamed_max_health.description": "Max health of a tamed fox, a wild fox has 10",
   "config.foxyfriends.title": "FoxyFriends",
   "config.foxyfriends.wander_hunting": "Hunt while wandering",
-  "config.foxyfriends.wander_hunting.description": "Tamed foxes in Wander mode hunt chickens, rabbits and fish. Wild foxes always hunt.",
+  "config.foxyfriends.wander_hunting.description": "Wandering tamed foxes hunt chickens, rabbits and fish. Wild foxes always hunt.",
   "config.foxyfriends.wild_tame_chance": "Wild taming chance",
   "config.foxyfriends.wild_tame_chance.description": "Chance to tame a wild fox with one feeding. Foxes that already trust you are tamed on the first feeding.",
   "message.foxyfriends.mode.follow": "%s is following you",
