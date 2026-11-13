@@ -23,7 +23,8 @@ English | [Русский](ru.md)
 | 26.3 | 0.20.1+ | 0.165.0+ | 25+ |
 
 The mod and Fabric API are needed on both server and client, if the mod versions don't match, the server won't let you in and tells which version it needs  
-Mod Menu and YACL are optional, client only, needed for the config screen
+Mod Menu and YACL are optional, client only, needed for the config screen  
+Building from source `./gradlew build` on JDK 25, the jar appears in `build/libs/`
 
 ## Taming
 Food - raw chicken, rabbit, cod, salmon, tropical fish (`#foxyfriends:fox_taming_food`), 1 item per feeding  
