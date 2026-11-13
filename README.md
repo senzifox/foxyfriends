@@ -23,6 +23,8 @@ English | [Русский](README.ru.md)
 - **Collar** - use any dye on your fox to recolor its collar
 - **Armor** - leather, copper, iron, golden, diamond or netherite, right-click an adult fox with it to put it on, shears to take it off
 
+More details in the [wiki](https://senzi.dev/foxyfriends/wiki/en)
+
 <details>
 <summary>Armor recipe</summary>
 
