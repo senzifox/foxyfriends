@@ -1,0 +1,25 @@
+{
+  "parent": "foxyfriends:tab/tamed_kit_born",
+  "criteria": {
+    "raise_kit": {
+      "trigger": "foxyfriends:kit_raised"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.raise_kit.description"
+    },
+    "icon": {
+      "id": "minecraft:cake"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.raise_kit.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "raise_kit"
+    ]
+  ]
+}

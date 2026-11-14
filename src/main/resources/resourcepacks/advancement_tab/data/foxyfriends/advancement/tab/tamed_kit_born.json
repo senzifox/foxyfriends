@@ -1,0 +1,24 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "tamed_kit_born": {
+      "trigger": "foxyfriends:tamed_kit_born"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.tamed_kit_born.description"
+    },
+    "icon": {
+      "id": "minecraft:fox_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.tamed_kit_born.title"
+    }
+  },
+  "requirements": [
+    [
+      "tamed_kit_born"
+    ]
+  ]
+}
