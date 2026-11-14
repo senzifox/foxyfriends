@@ -1,0 +1,32 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "stubborn_fox": {
+      "trigger": "foxyfriends:tame_fox",
+      "conditions": {
+        "feedings": {
+          "min": 22
+        },
+        "trusted": false
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.stubborn_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:salmon"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.stubborn_fox.title"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "stubborn_fox"
+    ]
+  ]
+}
