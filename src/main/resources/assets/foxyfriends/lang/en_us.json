@@ -13,6 +13,8 @@
   "advancements.foxyfriends.fox_at_heart.description": ":3",
   "advancements.foxyfriends.tame_fox.title": "An Act Too Often Neglected",
   "advancements.foxyfriends.tame_fox.description": "Tame a fox by feeding it raw chicken, rabbit or fish",
+  "advancements.foxyfriends.first_try.title": "Love at First Bite",
+  "advancements.foxyfriends.first_try.description": "Tame a wild fox with the very first treat",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

@@ -13,6 +13,8 @@
   "advancements.foxyfriends.fox_at_heart.description": ":3",
   "advancements.foxyfriends.tame_fox.title": "Давно забытое понятие",
   "advancements.foxyfriends.tame_fox.description": "Приручите лиса, угощая его сырой курицей, крольчатиной или рыбой",
+  "advancements.foxyfriends.first_try.title": "Любовь с первого укуса",
+  "advancements.foxyfriends.first_try.description": "Приручите дикого лиса с первого же угощения",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

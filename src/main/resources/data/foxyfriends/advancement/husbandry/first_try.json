@@ -1,0 +1,30 @@
+{
+  "parent": "foxyfriends:husbandry/tame_fox",
+  "criteria": {
+    "first_try": {
+      "trigger": "foxyfriends:tame_fox",
+      "conditions": {
+        "feedings": 1,
+        "trusted": false
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.first_try.description"
+    },
+    "icon": {
+      "id": "minecraft:rabbit"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.first_try.title"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "first_try"
+    ]
+  ]
+}

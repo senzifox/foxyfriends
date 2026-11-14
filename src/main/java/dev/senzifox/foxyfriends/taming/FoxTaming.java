@@ -1,9 +1,17 @@
 package dev.senzifox.foxyfriends.taming;
 
+import com.mojang.serialization.Codec;
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.advancements.triggers.CriteriaTriggers;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
@@ -20,6 +28,10 @@ import org.jspecify.annotations.Nullable;
 
 public final class FoxTaming {
 	public static final TagKey<Item> TAMING_FOOD = TagKey.create(Registries.ITEM, FoxyFriends.id("fox_taming_food"));
+	private static final AttachmentType<Map<UUID, Integer>> FAILED_FEEDINGS = AttachmentRegistry.create(
+		FoxyFriends.id("failed_feedings"),
+		builder -> builder.persistent(Codec.unboundedMap(UUIDUtil.STRING_CODEC, Codec.INT))
+	);
 
 	private FoxTaming() {
 	}
@@ -32,14 +44,20 @@ public final class FoxTaming {
 
 		if (fox.level() instanceof ServerLevel level) {
 			stack.consume(1, player);
-			boolean tamed = ((FoxAccessor) fox).foxyfriends$trusts(player) || fox.getRandom().nextFloat() < FoxConfig.get().wildTameChance();
+			boolean trusted = ((FoxAccessor) fox).foxyfriends$trusts(player);
+			boolean tamed = trusted || fox.getRandom().nextFloat() < FoxConfig.get().wildTameChance();
 			if (tamed) {
+				int feedings = failedFeedings(fox, player) + 1;
+				fox.removeAttached(FAILED_FEEDINGS);
 				FoxOwnership.tame(fox, player);
 				fox.getNavigation().stop();
 				fox.setTarget(null);
 				if (player instanceof ServerPlayer serverPlayer) {
 					CriteriaTriggers.TAME_ANIMAL.trigger(serverPlayer, fox);
+					FoxAdvancements.TAME_FOX.trigger(serverPlayer, fox, feedings, trusted);
 				}
+			} else {
+				recordFailedFeeding(fox, player);
 			}
 
 			level.sendParticles(tamed ? ParticleTypes.HEART : ParticleTypes.SMOKE, fox.getX(), fox.getY(0.5) + 0.5, fox.getZ(), 7, 0.4, 0.3, 0.4, 0.02);
@@ -47,5 +65,16 @@ public final class FoxTaming {
 		}
 
 		return InteractionResult.SUCCESS;
+	}
+
+	private static int failedFeedings(Fox fox, Player player) {
+		Map<UUID, Integer> failed = fox.getAttached(FAILED_FEEDINGS);
+		return failed == null ? 0 : failed.getOrDefault(player.getUUID(), 0);
+	}
+
+	private static void recordFailedFeeding(Fox fox, Player player) {
+		Map<UUID, Integer> failed = new HashMap<>(fox.getAttachedOrElse(FAILED_FEEDINGS, Map.of()));
+		failed.merge(player.getUUID(), 1, Integer::sum);
+		fox.setAttached(FAILED_FEEDINGS, Map.copyOf(failed));
 	}
 }
