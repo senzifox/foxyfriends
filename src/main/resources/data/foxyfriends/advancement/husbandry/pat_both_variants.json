@@ -1,0 +1,55 @@
+{
+  "parent": "foxyfriends:husbandry/pat_fox",
+  "criteria": {
+    "red": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:components": {
+              "minecraft:fox/variant": "red"
+            },
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    },
+    "snow": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:components": {
+              "minecraft:fox/variant": "snow"
+            },
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.pat_both_variants.description"
+    },
+    "icon": {
+      "id": "minecraft:snowball"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.pat_both_variants.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "red"
+    ],
+    [
+      "snow"
+    ]
+  ]
+}

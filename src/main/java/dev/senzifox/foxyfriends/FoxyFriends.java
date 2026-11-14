@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends;
 
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.collar.FoxCollar;
@@ -24,6 +25,7 @@ public class FoxyFriends implements ModInitializer {
 		FoxArmor.init();
 		FoxVersionCheck.init();
 		FoxPatting.init();
+		FoxAdvancements.init();
 	}
 
 	public static Identifier id(String path) {

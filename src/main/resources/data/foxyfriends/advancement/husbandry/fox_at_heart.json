@@ -1,0 +1,29 @@
+{
+  "parent": "foxyfriends:husbandry/pat_fox",
+  "criteria": {
+    "fox_at_heart": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "fox_at_heart": true
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_at_heart.description"
+    },
+    "icon": {
+      "id": "minecraft:orange_tulip"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_at_heart.title"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "fox_at_heart"
+    ]
+  ]
+}

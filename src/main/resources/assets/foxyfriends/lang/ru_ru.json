@@ -1,4 +1,12 @@
 {
+  "advancements.foxyfriends.pat_fox.title": "Кто хороший лис?",
+  "advancements.foxyfriends.pat_fox.description": "Погладьте лиса подкравшись к нему с пустой рукой",
+  "advancements.foxyfriends.pat_baby_fox.title": "Соу факин кьют",
+  "advancements.foxyfriends.pat_baby_fox.description": "Погладьте лисёнка",
+  "advancements.foxyfriends.pat_both_variants.title": "Огонь и лёд",
+  "advancements.foxyfriends.pat_both_variants.description": "Погладьте рыжего и снежного лиса",
+  "advancements.foxyfriends.fox_at_heart.title": "Лис в душе",
+  "advancements.foxyfriends.fox_at_heart.description": ":3",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

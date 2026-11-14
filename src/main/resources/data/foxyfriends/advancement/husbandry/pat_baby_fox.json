@@ -1,0 +1,36 @@
+{
+  "parent": "foxyfriends:husbandry/pat_fox",
+  "criteria": {
+    "pat_baby_fox": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox",
+            "minecraft:flags": {
+              "is_baby": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.pat_baby_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:fox_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.pat_baby_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "pat_baby_fox"
+    ]
+  ]
+}

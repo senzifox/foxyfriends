@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "pat_fox": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.pat_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:sweet_berries"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.pat_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "pat_fox"
+    ]
+  ]
+}
