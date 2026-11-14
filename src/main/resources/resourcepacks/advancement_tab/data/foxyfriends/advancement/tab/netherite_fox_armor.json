@@ -1,0 +1,40 @@
+{
+  "parent": "foxyfriends:tab/armor_fox",
+  "criteria": {
+    "netherite_fox_armor": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": {
+          "items": "foxyfriends:netherite_fox_armor"
+        },
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.netherite_fox_armor.description"
+    },
+    "icon": {
+      "id": "foxyfriends:netherite_fox_armor"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.netherite_fox_armor.title"
+    },
+    "frame": "challenge"
+  },
+  "requirements": [
+    [
+      "netherite_fox_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

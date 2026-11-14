@@ -1,0 +1,43 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "armor_fox": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": {
+          "items": [
+            "foxyfriends:leather_fox_armor",
+            "foxyfriends:copper_fox_armor",
+            "foxyfriends:iron_fox_armor",
+            "foxyfriends:golden_fox_armor",
+            "foxyfriends:diamond_fox_armor",
+            "foxyfriends:netherite_fox_armor"
+          ]
+        },
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.armor_fox.description"
+    },
+    "icon": {
+      "id": "foxyfriends:iron_fox_armor"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.armor_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "armor_fox"
+    ]
+  ]
+}
