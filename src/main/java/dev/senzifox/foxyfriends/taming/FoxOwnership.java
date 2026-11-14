@@ -2,6 +2,7 @@ package dev.senzifox.foxyfriends.taming;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.care.FoxCare;
+import dev.senzifox.foxyfriends.collar.FoxCollar;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
@@ -82,5 +83,6 @@ public final class FoxOwnership {
 		}
 
 		FoxCare.onTamed(fox);
+		FoxCollar.onTamed(fox, owner);
 	}
 }

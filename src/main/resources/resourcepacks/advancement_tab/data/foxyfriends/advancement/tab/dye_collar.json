@@ -1,0 +1,27 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "dye_collar": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "dyed": true
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.dye_collar.description"
+    },
+    "icon": {
+      "id": "minecraft:light_blue_dye"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.dye_collar.title"
+    }
+  },
+  "requirements": [
+    [
+      "dye_collar"
+    ]
+  ]
+}

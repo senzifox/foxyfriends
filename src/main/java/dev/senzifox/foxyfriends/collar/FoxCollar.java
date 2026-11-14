@@ -1,11 +1,13 @@
 package dev.senzifox.foxyfriends.collar;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -32,6 +34,12 @@ public final class FoxCollar {
 	public static void init() {
 	}
 
+	public static void onTamed(Fox fox, Player owner) {
+		if (owner instanceof ServerPlayer serverOwner) {
+			FoxAdvancements.COLLAR_COLORED.trigger(serverOwner, getColor(fox), false);
+		}
+	}
+
 	public static DyeColor getColor(Fox fox) {
 		return fox.getAttachedOrElse(COLOR, DEFAULT_COLOR);
 	}
@@ -47,6 +55,9 @@ public final class FoxCollar {
 			fox.setAttached(COLOR, color);
 			stack.consume(1, player);
 			fox.level().playSound(null, fox, SoundEvents.DYE_USE, SoundSource.PLAYERS, 1.0F, 1.0F);
+			if (player instanceof ServerPlayer serverPlayer) {
+				FoxAdvancements.COLLAR_COLORED.trigger(serverPlayer, color, true);
+			}
 		}
 
 		return InteractionResult.SUCCESS;

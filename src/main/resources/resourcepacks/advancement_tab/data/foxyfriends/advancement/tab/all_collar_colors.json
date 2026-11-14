@@ -1,0 +1,166 @@
+{
+  "parent": "foxyfriends:tab/dye_collar",
+  "criteria": {
+    "white": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "white"
+      }
+    },
+    "orange": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "orange"
+      }
+    },
+    "magenta": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "magenta"
+      }
+    },
+    "light_blue": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "light_blue"
+      }
+    },
+    "yellow": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "yellow"
+      }
+    },
+    "lime": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "lime"
+      }
+    },
+    "pink": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "pink"
+      }
+    },
+    "gray": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "gray"
+      }
+    },
+    "light_gray": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "light_gray"
+      }
+    },
+    "cyan": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "cyan"
+      }
+    },
+    "purple": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "purple"
+      }
+    },
+    "blue": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "blue"
+      }
+    },
+    "brown": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "brown"
+      }
+    },
+    "green": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "green"
+      }
+    },
+    "red": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "red"
+      }
+    },
+    "black": {
+      "trigger": "foxyfriends:collar_colored",
+      "conditions": {
+        "color": "black"
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.all_collar_colors.description"
+    },
+    "icon": {
+      "id": "minecraft:magenta_dye"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.all_collar_colors.title"
+    },
+    "frame": "challenge"
+  },
+  "requirements": [
+    [
+      "white"
+    ],
+    [
+      "orange"
+    ],
+    [
+      "magenta"
+    ],
+    [
+      "light_blue"
+    ],
+    [
+      "yellow"
+    ],
+    [
+      "lime"
+    ],
+    [
+      "pink"
+    ],
+    [
+      "gray"
+    ],
+    [
+      "light_gray"
+    ],
+    [
+      "cyan"
+    ],
+    [
+      "purple"
+    ],
+    [
+      "blue"
+    ],
+    [
+      "brown"
+    ],
+    [
+      "green"
+    ],
+    [
+      "red"
+    ],
+    [
+      "black"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}
