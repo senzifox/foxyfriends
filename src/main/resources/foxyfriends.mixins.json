@@ -13,7 +13,8 @@
 		"FoxSearchForItemsGoalMixin",
 		"FoxSeekShelterGoalMixin",
 		"FoxSleepGoalMixin",
-		"MobMixin"
+		"MobMixin",
+		"NameTagItemMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
