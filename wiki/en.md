@@ -149,8 +149,7 @@ Netherite - diamond upgrade at a smithing table: upgrade template + diamond fox 
 Recipes unlock in the recipe book on getting the material
 
 ## Advancements
-In the Husbandry tab
-
+### Husbandry
 | advancement | condition |
 |-|-|
 | Who's a Good Fox? | pet any fox |
@@ -160,6 +159,16 @@ In the Husbandry tab
 | You May Now Kiss the Fox | breed foxes |
 | An Act Too Often Neglected | tame a fox, grants vanilla "Best Friends Forever" along with it |
 | Love at First Bite | tame a wild fox that didn't trust the player on the first feeding |
+
+### FoxyFriends
+Own tab from the built-in data pack "FoxyFriends: Advancement Tab", enabled by default, turned off with `/datapack disable "foxyfriends:advancement_tab"`  
+The tab appears after the first petting or taming of a fox
+
+| advancement | condition |
+|-|-|
+| Sneak 100 | pet a sleeping wild fox |
+| Employee of the Month | pet foxes 999 times, counted in the "Foxes Patted" statistic |
+| What Does the Fox Say? | look at a fox through a spyglass |
 
 ## Config
 ### Server
