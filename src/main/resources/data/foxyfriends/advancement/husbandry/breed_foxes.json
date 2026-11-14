@@ -1,0 +1,33 @@
+{
+  "parent": "foxyfriends:husbandry/gift_to_fox",
+  "criteria": {
+    "breed_foxes": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "child": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.breed_foxes.description"
+    },
+    "icon": {
+      "id": "minecraft:glow_berries"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.breed_foxes.title"
+    }
+  },
+  "requirements": [
+    [
+      "breed_foxes"
+    ]
+  ]
+}

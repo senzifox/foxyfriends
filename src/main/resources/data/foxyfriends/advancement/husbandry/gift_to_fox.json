@@ -1,0 +1,33 @@
+{
+  "parent": "foxyfriends:husbandry/pat_fox",
+  "criteria": {
+    "gift_to_fox": {
+      "trigger": "minecraft:thrown_item_picked_up_by_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.gift_to_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:rabbit_foot"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.gift_to_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "gift_to_fox"
+    ]
+  ]
+}
