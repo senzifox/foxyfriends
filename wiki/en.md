@@ -169,6 +169,11 @@ The tab appears after the first petting or taming of a fox
 | Sneak 100 | pet a sleeping wild fox |
 | Employee of the Month | pet foxes 999 times, counted in the "Foxes Patted" statistic |
 | What Does the Fox Say? | look at a fox through a spyglass |
+| Alolan Form | tame a red fox and a snow fox, in any order |
+| Five Nights at Foxy's | 5 own foxes within 16 blocks at the moment of taming or birth of a tamed kit |
+| Never Gonna Give You Up | tame a wild fox that didn't trust the player on the player's 22nd feeding or later |
+| I Am Your Father | a tamed kit is born to the player |
+| They Grow Up So Fast | own kit grows up while the owner is online |
 
 ## Config
 ### Server
