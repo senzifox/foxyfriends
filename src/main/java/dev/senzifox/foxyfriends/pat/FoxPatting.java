@@ -3,6 +3,7 @@ package dev.senzifox.foxyfriends.pat;
 import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
+import dev.senzifox.foxyfriends.stats.FoxStats;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.UUID;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
@@ -74,6 +75,10 @@ public final class FoxPatting {
 		if (patted.level() instanceof ServerLevel level && isCooledDown(patted, level)) {
 			patted.setAttached(LAST_PAT, level.getGameTime());
 			if (patter instanceof ServerPlayer serverPatter) {
+				if (patted instanceof Fox) {
+					serverPatter.awardStat(FoxStats.FOXES_PATTED);
+				}
+
 				FoxAdvancements.PAT_FOX.trigger(serverPatter, patted, isFoxAtHeart(patted));
 			}
 

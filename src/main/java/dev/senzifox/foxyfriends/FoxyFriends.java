@@ -8,6 +8,7 @@ import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.network.FoxVersionCheck;
 import dev.senzifox.foxyfriends.pat.FoxPatting;
+import dev.senzifox.foxyfriends.stats.FoxStats;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -25,6 +26,7 @@ public class FoxyFriends implements ModInitializer {
 		FoxArmor.init();
 		FoxVersionCheck.init();
 		FoxPatting.init();
+		FoxStats.init();
 		FoxAdvancements.init();
 	}
 
