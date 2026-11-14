@@ -1,5 +1,6 @@
 package dev.senzifox.foxyfriends.taming;
 
+import dev.senzifox.foxyfriends.stats.FoxStats;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.animal.fox.Fox;
 
@@ -19,6 +20,7 @@ public final class FoxBreeding {
 		ServerPlayer breeder = firstFed.getLoveCause();
 		if (breeder != null) {
 			FoxOwnership.tame(baby, breeder);
+			breeder.awardStat(FoxStats.KITS_BORN);
 		}
 	}
 }

@@ -9,12 +9,22 @@ import net.minecraft.stats.Stats;
 
 public final class FoxStats {
 	public static final Identifier FOXES_PATTED = FoxyFriends.id("foxes_patted");
+	public static final Identifier FOXES_TAMED = FoxyFriends.id("foxes_tamed");
+	public static final Identifier TAMING_ATTEMPTS = FoxyFriends.id("taming_attempts");
+	public static final Identifier KITS_BORN = FoxyFriends.id("kits_born");
 
 	private FoxStats() {
 	}
 
 	public static void init() {
-		Registry.register(BuiltInRegistries.CUSTOM_STAT, FOXES_PATTED, FOXES_PATTED);
-		Stats.CUSTOM.get(FOXES_PATTED, StatFormatter.DEFAULT);
+		register(FOXES_PATTED);
+		register(FOXES_TAMED);
+		register(TAMING_ATTEMPTS);
+		register(KITS_BORN);
+	}
+
+	private static void register(Identifier stat) {
+		Registry.register(BuiltInRegistries.CUSTOM_STAT, stat, stat);
+		Stats.CUSTOM.get(stat, StatFormatter.DEFAULT);
 	}
 }

@@ -5,6 +5,7 @@ import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
+import dev.senzifox.foxyfriends.stats.FoxStats;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -46,18 +47,18 @@ public final class FoxTaming {
 			stack.consume(1, player);
 			boolean trusted = ((FoxAccessor) fox).foxyfriends$trusts(player);
 			boolean tamed = trusted || fox.getRandom().nextFloat() < FoxConfig.get().wildTameChance();
+			int feedings = failedFeedings(fox, player) + 1;
 			if (tamed) {
-				int feedings = failedFeedings(fox, player) + 1;
 				fox.removeAttached(FAILED_FEEDINGS);
 				FoxOwnership.tame(fox, player);
 				fox.getNavigation().stop();
 				fox.setTarget(null);
-				if (player instanceof ServerPlayer serverPlayer) {
-					CriteriaTriggers.TAME_ANIMAL.trigger(serverPlayer, fox);
-					FoxAdvancements.TAME_FOX.trigger(serverPlayer, fox, feedings, trusted);
-				}
 			} else {
 				recordFailedFeeding(fox, player);
+			}
+
+			if (player instanceof ServerPlayer serverPlayer) {
+				rewardFeeding(serverPlayer, fox, tamed, feedings, trusted);
 			}
 
 			level.sendParticles(tamed ? ParticleTypes.HEART : ParticleTypes.SMOKE, fox.getX(), fox.getY(0.5) + 0.5, fox.getZ(), 7, 0.4, 0.3, 0.4, 0.02);
@@ -65,6 +66,17 @@ public final class FoxTaming {
 		}
 
 		return InteractionResult.SUCCESS;
+	}
+
+	private static void rewardFeeding(ServerPlayer player, Fox fox, boolean tamed, int feedings, boolean trusted) {
+		player.awardStat(FoxStats.TAMING_ATTEMPTS);
+		if (!tamed) {
+			return;
+		}
+
+		player.awardStat(FoxStats.FOXES_TAMED);
+		CriteriaTriggers.TAME_ANIMAL.trigger(player, fox);
+		FoxAdvancements.TAME_FOX.trigger(player, fox, feedings, trusted);
 	}
 
 	private static int failedFeedings(Fox fox, Player player) {
