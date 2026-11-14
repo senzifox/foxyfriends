@@ -12,6 +12,7 @@ English | [Русский](ru.md)
 - [Breeding](#breeding)
 - [Collar](#collar)
 - [Armor](#armor)
+- [Advancements](#advancements)
 - [Config](#config)
 - [Chat commands](#chat-commands)
 - [Data pack tags](#data-pack-tags)
@@ -146,6 +147,19 @@ All tamed foxes have one, babies included, default color - red, the owner recolo
 
 Netherite - diamond upgrade at a smithing table: upgrade template + diamond fox armor + netherite ingot  
 Recipes unlock in the recipe book on getting the material
+
+## Advancements
+In the Husbandry tab
+
+| advancement | condition |
+|-|-|
+| Who's a Good Fox? | pet any fox |
+| So Fluffin' Cute | pet a baby fox |
+| Firefox and Iceweasel | pet a red fox and a snow fox, in any order |
+| It's Called a Hustle, Sweetheart | a fox picks up an item thrown by the player |
+| You May Now Kiss the Fox | breed foxes |
+| An Act Too Often Neglected | tame a fox, grants vanilla "Best Friends Forever" along with it |
+| Love at First Bite | tame a wild fox that didn't trust the player on the first feeding |
 
 ## Config
 ### Server
