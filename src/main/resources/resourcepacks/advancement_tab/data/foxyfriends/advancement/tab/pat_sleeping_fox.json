@@ -1,0 +1,36 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "pat_sleeping_fox": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        },
+        "fox_sleeping": true,
+        "fox_tamed": false
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.pat_sleeping_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:red_bed"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.pat_sleeping_fox.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "pat_sleeping_fox"
+    ]
+  ]
+}

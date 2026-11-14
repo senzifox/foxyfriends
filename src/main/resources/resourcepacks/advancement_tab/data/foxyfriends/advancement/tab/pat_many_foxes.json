@@ -1,0 +1,33 @@
+{
+  "parent": "foxyfriends:tab/pat_sleeping_fox",
+  "criteria": {
+    "pat_many_foxes": {
+      "trigger": "foxyfriends:pat_fox",
+      "conditions": {
+        "total": {
+          "min": 999
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.pat_many_foxes.description"
+    },
+    "icon": {
+      "id": "minecraft:feather"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.pat_many_foxes.title"
+    },
+    "frame": "challenge"
+  },
+  "requirements": [
+    [
+      "pat_many_foxes"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}
