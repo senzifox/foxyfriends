@@ -3,9 +3,11 @@ package dev.senzifox.foxyfriends.taming;
 import dev.senzifox.foxyfriends.FoxyFriends;
 import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
+import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
@@ -35,6 +37,9 @@ public final class FoxTaming {
 				FoxOwnership.tame(fox, player);
 				fox.getNavigation().stop();
 				fox.setTarget(null);
+				if (player instanceof ServerPlayer serverPlayer) {
+					CriteriaTriggers.TAME_ANIMAL.trigger(serverPlayer, fox);
+				}
 			}
 
 			level.sendParticles(tamed ? ParticleTypes.HEART : ParticleTypes.SMOKE, fox.getX(), fox.getY(0.5) + 0.5, fox.getZ(), 7, 0.4, 0.3, 0.4, 0.02);

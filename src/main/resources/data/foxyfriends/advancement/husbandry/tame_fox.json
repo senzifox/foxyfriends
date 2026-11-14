@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:husbandry/tame_an_animal",
+  "criteria": {
+    "tame_fox": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.tame_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:chicken"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.tame_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "tame_fox"
+    ]
+  ]
+}

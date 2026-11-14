@@ -11,6 +11,8 @@
   "advancements.foxyfriends.breed_foxes.description": "Разведите лис ягодами: лисёнок будет вам доверять",
   "advancements.foxyfriends.fox_at_heart.title": "Лис в душе",
   "advancements.foxyfriends.fox_at_heart.description": ":3",
+  "advancements.foxyfriends.tame_fox.title": "Давно забытое понятие",
+  "advancements.foxyfriends.tame_fox.description": "Приручите лиса, угощая его сырой курицей, крольчатиной или рыбой",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",
