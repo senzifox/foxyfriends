@@ -39,7 +39,8 @@ A fox trusts the player who bred it, as in vanilla
 | attack damage | 2 | 3 (`tamed_attack_damage`) |
 
 On taming the fox heals to full, trusts its owner and gets a [collar](#collar)  
-Death of a tamed fox - message to the owner, like with wolves, depends on the `showDeathMessages` game rule
+Death of a tamed fox - message to the owner, like with wolves, depends on the `showDeathMessages` game rule  
+Only the owner can name a tamed fox with a name tag, a wild one - any player
 
 ## Commands
 Command - right-click own fox with an empty hand without sneaking, order *Follow* --> *Sit* --> *Wander*, the new command shows above the hotbar, after taming - *Follow*
@@ -174,6 +175,11 @@ The tab appears after the first petting or taming of a fox
 | Never Gonna Give You Up | tame a wild fox that didn't trust the player on the player's 22nd feeding or later |
 | I Am Your Father | a tamed kit is born to the player |
 | They Grow Up So Fast | own kit grows up while the owner is online |
+| Dress to Impress | dye the collar of own fox |
+| Sixteen Shades of Fox | all 16 colors on collars of own foxes, red counts on taming |
+| Say My Name | name own fox with a name tag |
+| Drip Check | put fox armor on own fox by clicking |
+| Berserker Armor | put netherite fox armor on by clicking |
 
 ## Config
 ### Server
