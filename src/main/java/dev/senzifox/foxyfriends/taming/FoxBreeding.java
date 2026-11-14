@@ -1,5 +1,7 @@
 package dev.senzifox.foxyfriends.taming;
 
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
+import dev.senzifox.foxyfriends.advancement.OwnFoxesNearbyTrigger;
 import dev.senzifox.foxyfriends.stats.FoxStats;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.animal.fox.Fox;
@@ -21,6 +23,7 @@ public final class FoxBreeding {
 		if (breeder != null) {
 			FoxOwnership.tame(baby, breeder);
 			breeder.awardStat(FoxStats.KITS_BORN);
+			FoxAdvancements.OWN_FOXES_NEARBY.trigger(breeder, parent.level() == breeder.level() && parent.distanceTo(breeder) <= OwnFoxesNearbyTrigger.RADIUS ? 1 : 0);
 		}
 	}
 }

@@ -1,0 +1,33 @@
+{
+  "parent": "foxyfriends:tab/tame_both_variants",
+  "criteria": {
+    "fox_pack": {
+      "trigger": "foxyfriends:own_foxes_nearby",
+      "conditions": {
+        "count": {
+          "min": 5
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_pack.description"
+    },
+    "icon": {
+      "id": "minecraft:lead"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_pack.title"
+    },
+    "frame": "challenge"
+  },
+  "requirements": [
+    [
+      "fox_pack"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

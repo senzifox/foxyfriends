@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 public final class FoxAdvancements {
 	public static final FoxPatTrigger PAT_FOX = new FoxPatTrigger();
 	public static final FoxTameTrigger TAME_FOX = new FoxTameTrigger();
+	public static final OwnFoxesNearbyTrigger OWN_FOXES_NEARBY = new OwnFoxesNearbyTrigger();
 
 	private FoxAdvancements() {
 	}
@@ -18,6 +19,7 @@ public final class FoxAdvancements {
 	public static void init() {
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("pat_fox"), PAT_FOX);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("tame_fox"), TAME_FOX);
+		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("own_foxes_nearby"), OWN_FOXES_NEARBY);
 		ResourceLoader.registerBuiltinPack(
 			FoxyFriends.id("advancement_tab"),
 			FabricLoader.getInstance().getModContainer(FoxyFriends.MOD_ID).orElseThrow(),

@@ -25,6 +25,8 @@
   "advancements.foxyfriends.spyglass_at_fox.description": "Look at a fox through a spyglass",
   "advancements.foxyfriends.tame_both_variants.title": "Alolan Form",
   "advancements.foxyfriends.tame_both_variants.description": "Tame a red fox and a snow fox",
+  "advancements.foxyfriends.fox_pack.title": "Five Nights at Foxy's",
+  "advancements.foxyfriends.fox_pack.description": "Have five of your tamed foxes around you",
   "advancements.foxyfriends.stubborn_fox.title": "Never Gonna Give You Up",
   "advancements.foxyfriends.stubborn_fox.description": "Tame a fox that has turned down more than twenty of your treats",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",

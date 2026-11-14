@@ -77,6 +77,7 @@ public final class FoxTaming {
 		player.awardStat(FoxStats.FOXES_TAMED);
 		CriteriaTriggers.TAME_ANIMAL.trigger(player, fox);
 		FoxAdvancements.TAME_FOX.trigger(player, fox, feedings, trusted);
+		FoxAdvancements.OWN_FOXES_NEARBY.trigger(player, 0);
 	}
 
 	private static int failedFeedings(Fox fox, Player player) {

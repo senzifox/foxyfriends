@@ -25,6 +25,8 @@
   "advancements.foxyfriends.spyglass_at_fox.description": "Посмотри на лиса в подзорную трубу",
   "advancements.foxyfriends.tame_both_variants.title": "Алольская форма",
   "advancements.foxyfriends.tame_both_variants.description": "Приручи рыжего и снежного лиса",
+  "advancements.foxyfriends.fox_pack.title": "Пятёрочка",
+  "advancements.foxyfriends.fox_pack.description": "Собери рядом пять своих ручных лис",
   "advancements.foxyfriends.stubborn_fox.title": "Скилл ишью",
   "advancements.foxyfriends.stubborn_fox.description": "Приручи лиса, который отверг больше двадцати твоих угощений",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
