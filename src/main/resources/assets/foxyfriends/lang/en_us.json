@@ -37,6 +37,8 @@
   "advancements.foxyfriends.dye_collar.description": "Dye your fox's collar",
   "advancements.foxyfriends.all_collar_colors.title": "Sixteen Shades of Fox",
   "advancements.foxyfriends.all_collar_colors.description": "Get all 16 colors on your foxes' collars",
+  "advancements.foxyfriends.name_fox.title": "Say My Name",
+  "advancements.foxyfriends.name_fox.description": "Name your fox with a name tag",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

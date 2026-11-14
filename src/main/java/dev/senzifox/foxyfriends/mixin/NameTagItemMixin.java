@@ -20,4 +20,11 @@ public abstract class NameTagItemMixin {
 			cir.setReturnValue(InteractionResult.PASS);
 		}
 	}
+
+	@Inject(method = "interactLivingEntity", at = @At("RETURN"))
+	private void foxyfriends$rewardNaming(ItemStack stack, Player player, LivingEntity target, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+		if (cir.getReturnValue() == InteractionResult.SUCCESS) {
+			FoxNaming.onNamed(player, target);
+		}
+	}
 }

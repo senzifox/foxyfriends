@@ -1,0 +1,24 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "name_fox": {
+      "trigger": "foxyfriends:named_fox"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.name_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:name_tag"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.name_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "name_fox"
+    ]
+  ]
+}

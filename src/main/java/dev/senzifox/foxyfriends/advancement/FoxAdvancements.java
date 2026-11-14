@@ -16,6 +16,7 @@ public final class FoxAdvancements {
 	public static final PlayerTrigger TAMED_KIT_BORN = new PlayerTrigger();
 	public static final PlayerTrigger KIT_RAISED = new PlayerTrigger();
 	public static final CollarColoredTrigger COLLAR_COLORED = new CollarColoredTrigger();
+	public static final PlayerTrigger NAMED_FOX = new PlayerTrigger();
 
 	private FoxAdvancements() {
 	}
@@ -27,6 +28,7 @@ public final class FoxAdvancements {
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("tamed_kit_born"), TAMED_KIT_BORN);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("kit_raised"), KIT_RAISED);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("collar_colored"), COLLAR_COLORED);
+		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("named_fox"), NAMED_FOX);
 		ResourceLoader.registerBuiltinPack(
 			FoxyFriends.id("advancement_tab"),
 			FabricLoader.getInstance().getModContainer(FoxyFriends.MOD_ID).orElseThrow(),

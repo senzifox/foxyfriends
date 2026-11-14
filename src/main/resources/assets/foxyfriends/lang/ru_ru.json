@@ -37,6 +37,8 @@
   "advancements.foxyfriends.dye_collar.description": "Перекрась ошейник своего лиса красителем",
   "advancements.foxyfriends.all_collar_colors.title": "Все цвета радуги и ещё девять",
   "advancements.foxyfriends.all_collar_colors.description": "Укрась ошейники своих лис всеми 16 цветами",
+  "advancements.foxyfriends.name_fox.title": "Назови моё имя",
+  "advancements.foxyfriends.name_fox.description": "Дай своему лису имя с помощью бирки",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",
