@@ -1,0 +1,36 @@
+{
+  "parent": "foxyfriends:tab/dye_collar",
+  "criteria": {
+    "glow_collar": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:fox"
+          }
+        },
+        "item": {
+          "items": "minecraft:glow_ink_sac"
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.glow_collar.description"
+    },
+    "icon": {
+      "id": "minecraft:glow_ink_sac"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.glow_collar.title"
+    }
+  },
+  "requirements": [
+    [
+      "glow_collar"
+    ]
+  ]
+}
