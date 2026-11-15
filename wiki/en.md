@@ -181,6 +181,17 @@ The tab appears after the first petting or taming of a fox
 | Drip Check | put fox armor on own fox by clicking |
 | Berserker Armor | put netherite fox armor on by clicking |
 
+### Statistics
+Rows in the vanilla statistics menu, counted since the mod was installed
+
+| statistic | when it grows |
+|-|-|
+| Foxes Patted | a counted petting of any fox |
+| Foxes Tamed | taming by feeding |
+| Taming Attempts | any taming feeding |
+| Kits Born | a tamed kit is born to the player |
+| Kits Raised | own kit grows up while the owner is online |
+
 ## Config
 ### Server
 `config/foxyfriends.json`, applied to all loaded foxes with `/foxyfriends reload`
