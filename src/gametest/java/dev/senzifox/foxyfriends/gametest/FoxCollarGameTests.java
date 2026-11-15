@@ -39,13 +39,37 @@ public class FoxCollarGameTests {
 		Fox fox = spawnTame(helper, owner);
 		dye(fox, owner, DyeColor.LIME);
 
+		helper.assertValueEqual(FoxCollar.getColor(reload(helper, fox)), DyeColor.LIME, "collar color after reload");
+		helper.succeed();
+	}
+
+	@GameTest
+	public void strangerCannotMakeCollarGlow(GameTestHelper helper) {
+		Fox fox = spawnTame(helper, helper.makeMockPlayer(GameType.SURVIVAL));
+
+		ItemStack inkSac = use(fox, helper.makeMockPlayer(GameType.SURVIVAL), new ItemStack(Items.GLOW_INK_SAC));
+
+		helper.assertFalse(FoxCollar.isGlowing(fox), "collar glows");
+		helper.assertValueEqual(inkSac.getCount(), 1, "glow ink sac count");
+		helper.succeed();
+	}
+
+	@GameTest
+	public void collarGlowSurvivesReload(GameTestHelper helper) {
+		Player owner = helper.makeMockPlayer(GameType.SURVIVAL);
+		Fox fox = spawnTame(helper, owner);
+		use(fox, owner, new ItemStack(Items.GLOW_INK_SAC));
+
+		helper.assertTrue(FoxCollar.isGlowing(reload(helper, fox)), "collar glows after reload");
+		helper.succeed();
+	}
+
+	private static Fox reload(GameTestHelper helper, Fox fox) {
 		TagValueOutput output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, helper.getLevel().registryAccess());
 		fox.saveWithoutId(output);
 		Fox loaded = EntityTypes.FOX.create(helper.getLevel(), EntitySpawnReason.LOAD);
 		loaded.load(TagValueInput.create(ProblemReporter.DISCARDING, helper.getLevel().registryAccess(), output.buildResult()));
-
-		helper.assertValueEqual(FoxCollar.getColor(loaded), DyeColor.LIME, "collar color after reload");
-		helper.succeed();
+		return loaded;
 	}
 
 	private static Fox spawnTame(GameTestHelper helper, Player owner) {
@@ -55,7 +79,11 @@ public class FoxCollarGameTests {
 	}
 
 	private static ItemStack dye(Fox fox, Player player, DyeColor color) {
-		player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.DYE.pick(color)));
+		return use(fox, player, new ItemStack(Items.DYE.pick(color)));
+	}
+
+	private static ItemStack use(Fox fox, Player player, ItemStack stack) {
+		player.setItemInHand(InteractionHand.MAIN_HAND, stack);
 		player.interactOn(fox, InteractionHand.MAIN_HAND, Vec3.ZERO);
 		return player.getItemInHand(InteractionHand.MAIN_HAND);
 	}

@@ -19,6 +19,7 @@ public abstract class FoxRendererMixin {
 	@Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/fox/Fox;Lnet/minecraft/client/renderer/entity/state/FoxRenderState;F)V", at = @At("TAIL"))
 	private void foxyfriends$extractGear(Fox fox, FoxRenderState state, float partialTicks, CallbackInfo ci) {
 		state.setData(FoxCollarLayer.COLLAR_COLOR, FoxOwnership.isTame(fox) ? FoxCollar.getColor(fox) : null);
+		state.setData(FoxCollarLayer.COLLAR_GLOWING, FoxCollar.isGlowing(fox));
 		state.setData(FoxArmorLayer.BODY_ARMOR, fox.getBodyArmorItem().copy());
 		state.setData(FoxPatAnimation.SQUASH, FoxPatAnimation.squash(fox, partialTicks));
 	}

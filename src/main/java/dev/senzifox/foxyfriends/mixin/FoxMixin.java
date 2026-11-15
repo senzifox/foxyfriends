@@ -2,6 +2,7 @@ package dev.senzifox.foxyfriends.mixin;
 
 import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
+import dev.senzifox.foxyfriends.collar.FoxCollar;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtByTargetGoal;
 import dev.senzifox.foxyfriends.defense.FoxOwnerHurtTargetGoal;
 import dev.senzifox.foxyfriends.defense.FoxRetaliateGoal;
@@ -57,6 +58,11 @@ public abstract class FoxMixin extends Animal implements OwnableEntity {
 	@Inject(method = "aiStep", at = @At("TAIL"))
 	private void foxyfriends$care(CallbackInfo ci) {
 		FoxCare.tick((Fox) (Object) this);
+	}
+
+	@Inject(method = "aiStep", at = @At("TAIL"))
+	private void foxyfriends$glowCollar(CallbackInfo ci) {
+		FoxCollar.tickGlow((Fox) (Object) this);
 	}
 
 	@Inject(method = "canHoldItem", at = @At("HEAD"), cancellable = true)
