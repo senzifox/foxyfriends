@@ -22,6 +22,7 @@ English | [Русский](README.ru.md)
 - **Breeding** - a baby of two tamed foxes is born tamed to whoever fed the first parent, with one tamed parent it's a coin flip
 - **Collar** - use any dye on your fox to recolor its collar
 - **Armor** - leather, copper, iron, golden, diamond or netherite, right-click an adult fox with it to put it on, shears to take it off
+- **Advancements** - 21 advancements, statistics
 
 More details in the [wiki](https://senzi.dev/foxyfriends/wiki/en)
 
