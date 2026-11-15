@@ -117,7 +117,8 @@ Tamed foxes can only be bred at full health, otherwise healing
 A tamed baby follows adult foxes only in *Wander*
 
 ## Collar
-All tamed foxes have one, babies included, default color - red, the owner recolors it with any dye
+All tamed foxes have one, babies included, default color - red, the owner recolors it with any dye  
+A glow ink sac makes the collar glow in the dark, an ink sac removes the glow
 
 ## Armor
 | armor | protection |
@@ -176,6 +177,7 @@ The tab appears after the first petting or taming of a fox
 | I Am Your Father | a tamed kit is born to the player |
 | They Grow Up So Fast | own kit grows up while the owner is online |
 | Dress to Impress | dye the collar of own fox |
+| Shine Bright Like a Fox | make the collar of own fox glow with a glow ink sac |
 | Sixteen Shades of Fox | all 16 colors on collars of own foxes, red counts on taming |
 | Say My Name | name own fox with a name tag |
 | Drip Check | put fox armor on own fox by clicking |
