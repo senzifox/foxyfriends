@@ -47,7 +47,11 @@ public final class FoxPatting {
 		}
 
 		if (FoxOwnership.isOwnedBy(fox, player) && !fox.level().isClientSide()) {
+			boolean agitated = isAgitated(fox);
 			calm(fox);
+			if (agitated && player instanceof ServerPlayer serverPlayer) {
+				FoxAdvancements.CALMED_FOX.trigger(serverPlayer);
+			}
 		}
 
 		return pat(player, fox);
@@ -56,6 +60,10 @@ public final class FoxPatting {
 	public static boolean isCalm(Fox fox) {
 		Long until = fox.getAttached(CALM_UNTIL);
 		return until != null && fox.level().getGameTime() < until;
+	}
+
+	private static boolean isAgitated(Fox fox) {
+		return !fox.isSleeping() && (fox.getTarget() != null || fox.getLastHurtByMob() != null);
 	}
 
 	private static boolean isPatGesture(Player player, InteractionHand hand) {

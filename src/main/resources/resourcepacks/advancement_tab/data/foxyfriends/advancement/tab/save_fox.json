@@ -1,0 +1,30 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "save_fox": {
+      "trigger": "foxyfriends:fed_fox",
+      "conditions": {
+        "health_fraction": {
+          "max": 0.2
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.save_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:golden_apple"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.save_fox.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "save_fox"
+    ]
+  ]
+}

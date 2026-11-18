@@ -1,0 +1,25 @@
+{
+  "parent": "foxyfriends:tab/save_fox",
+  "criteria": {
+    "calm_fox": {
+      "trigger": "foxyfriends:calmed_fox"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.calm_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:oxeye_daisy"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.calm_fox.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "calm_fox"
+    ]
+  ]
+}

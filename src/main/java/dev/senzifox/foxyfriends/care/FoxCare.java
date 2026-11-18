@@ -1,6 +1,7 @@
 package dev.senzifox.foxyfriends.care;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.config.FoxyFriendsConfig;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
@@ -8,6 +9,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
@@ -63,8 +65,12 @@ public final class FoxCare {
 		}
 
 		if (!fox.level().isClientSide()) {
+			double healthFractionBefore = fox.getHealth() / fox.getMaxHealth();
 			FoodProperties food = stack.get(DataComponents.FOOD);
 			fox.heal(food != null ? food.nutrition() : FALLBACK_HEAL);
+			if (player instanceof ServerPlayer serverPlayer && FoxOwnership.isOwnedBy(fox, serverPlayer)) {
+				FoxAdvancements.FED_FOX.trigger(serverPlayer, healthFractionBefore);
+			}
 			stack.consume(1, player);
 			fox.playSound(SoundEvents.FOX_EAT);
 		}
