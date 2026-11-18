@@ -5,6 +5,7 @@
 	"mixins": [
 		"AgeableMobMixin",
 		"AnimalMixin",
+		"EntityMixin",
 		"FoxAccessor",
 		"FoxDefendTrustedTargetGoalMixin",
 		"FoxFollowParentGoalMixin",

@@ -21,6 +21,7 @@ public final class FoxAdvancements {
 	public static final MouthItemTakenTrigger MOUTH_ITEM_TAKEN = new MouthItemTakenTrigger();
 	public static final FoxFedTrigger FED_FOX = new FoxFedTrigger();
 	public static final PlayerTrigger CALMED_FOX = new PlayerTrigger();
+	public static final PlayerTrigger BOATED_WITH_FOX = new PlayerTrigger();
 
 	private FoxAdvancements() {
 	}
@@ -37,6 +38,7 @@ public final class FoxAdvancements {
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("mouth_item_taken"), MOUTH_ITEM_TAKEN);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("fed_fox"), FED_FOX);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("calmed_fox"), CALMED_FOX);
+		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("boated_with_fox"), BOATED_WITH_FOX);
 		ResourceLoader.registerBuiltinPack(
 			FoxyFriends.id("advancement_tab"),
 			FabricLoader.getInstance().getModContainer(FoxyFriends.MOD_ID).orElseThrow(),

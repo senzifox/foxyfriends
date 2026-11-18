@@ -55,6 +55,8 @@
   "advancements.foxyfriends.save_fox.description": "Feed your fox when it is at death's door",
   "advancements.foxyfriends.calm_fox.title": "Chill Guy",
   "advancements.foxyfriends.calm_fox.description": "Calm your fox down in the heat of the moment by patting it",
+  "advancements.foxyfriends.fox_in_boat.title": "Whatever Floats Your Fox",
+  "advancements.foxyfriends.fox_in_boat.description": "Get in a boat with your fox",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

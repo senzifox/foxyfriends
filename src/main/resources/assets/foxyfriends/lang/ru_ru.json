@@ -55,6 +55,8 @@
   "advancements.foxyfriends.save_fox.description": "Вылечи едой своего лиса, когда тот при смерти",
   "advancements.foxyfriends.calm_fox.title": "Чилл гай",
   "advancements.foxyfriends.calm_fox.description": "Успокой своего разбушевавшегося лиса, погладив его",
+  "advancements.foxyfriends.fox_in_boat.title": "Волк, коза и… лис?",
+  "advancements.foxyfriends.fox_in_boat.description": "Сядь в лодку вместе со своим лисом",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

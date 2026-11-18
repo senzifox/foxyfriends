@@ -1,0 +1,24 @@
+{
+  "parent": "foxyfriends:tab/command_fox",
+  "criteria": {
+    "fox_in_boat": {
+      "trigger": "foxyfriends:boated_with_fox"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_in_boat.description"
+    },
+    "icon": {
+      "id": "minecraft:spruce_boat"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_in_boat.title"
+    }
+  },
+  "requirements": [
+    [
+      "fox_in_boat"
+    ]
+  ]
+}
