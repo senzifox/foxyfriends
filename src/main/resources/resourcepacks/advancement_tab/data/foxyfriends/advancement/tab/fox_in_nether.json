@@ -1,0 +1,28 @@
+{
+  "parent": "foxyfriends:tab/fox_in_boat",
+  "criteria": {
+    "fox_in_nether": {
+      "trigger": "foxyfriends:fox_changed_dimension",
+      "conditions": {
+        "to": "minecraft:the_nether"
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_in_nether.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:obsidian"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_in_nether.title"
+    }
+  },
+  "requirements": [
+    [
+      "fox_in_nether"
+    ]
+  ]
+}

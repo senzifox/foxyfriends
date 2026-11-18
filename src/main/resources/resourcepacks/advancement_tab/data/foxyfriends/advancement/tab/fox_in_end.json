@@ -1,0 +1,28 @@
+{
+  "parent": "foxyfriends:tab/fox_in_nether",
+  "criteria": {
+    "fox_in_end": {
+      "trigger": "foxyfriends:fox_changed_dimension",
+      "conditions": {
+        "to": "minecraft:the_end"
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_in_end.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:ender_eye"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_in_end.title"
+    }
+  },
+  "requirements": [
+    [
+      "fox_in_end"
+    ]
+  ]
+}
