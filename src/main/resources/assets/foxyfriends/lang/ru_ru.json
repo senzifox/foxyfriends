@@ -45,6 +45,8 @@
   "advancements.foxyfriends.armor_fox.description": "Надень на своего взрослого лиса лисью броню",
   "advancements.foxyfriends.netherite_fox_armor.title": "Тёмный принц",
   "advancements.foxyfriends.netherite_fox_armor.description": "Надень на лиса незеритовую броню",
+  "advancements.foxyfriends.command_fox.title": "Сидеть!",
+  "advancements.foxyfriends.command_fox.description": "Щёлкни по своему лису пустой рукой, чтобы он сел, пошёл гулять, пошёл за тобой и… снова сел?",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

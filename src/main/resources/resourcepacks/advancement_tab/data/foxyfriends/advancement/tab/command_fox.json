@@ -1,0 +1,24 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "command_fox": {
+      "trigger": "foxyfriends:commanded_fox"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.command_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:lead"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.command_fox.title"
+    }
+  },
+  "requirements": [
+    [
+      "command_fox"
+    ]
+  ]
+}

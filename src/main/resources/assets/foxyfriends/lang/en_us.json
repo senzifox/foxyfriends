@@ -45,6 +45,8 @@
   "advancements.foxyfriends.armor_fox.description": "Put fox armor on your adult fox",
   "advancements.foxyfriends.netherite_fox_armor.title": "Berserker Armor",
   "advancements.foxyfriends.netherite_fox_armor.description": "Put netherite armor on your fox",
+  "advancements.foxyfriends.command_fox.title": "Your Wish Is My Command",
+  "advancements.foxyfriends.command_fox.description": "Use an empty hand on your fox to make it sit, wander or follow you again",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

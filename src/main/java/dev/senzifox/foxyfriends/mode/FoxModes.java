@@ -1,6 +1,7 @@
 package dev.senzifox.foxyfriends.mode;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.config.FoxConfig;
 import dev.senzifox.foxyfriends.mixin.FoxAccessor;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
@@ -9,6 +10,7 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityLevelChangeEvents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.animal.fox.Fox;
@@ -81,6 +83,9 @@ public final class FoxModes {
 			FoxMode mode = getMode(fox).next();
 			setMode(fox, mode);
 			player.sendOverlayMessage(Component.translatable("message.foxyfriends.mode." + mode.getSerializedName(), fox.getDisplayName()));
+			if (player instanceof ServerPlayer serverPlayer) {
+				FoxAdvancements.COMMANDED_FOX.trigger(serverPlayer);
+			}
 		}
 
 		return InteractionResult.SUCCESS;
