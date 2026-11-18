@@ -1,0 +1,38 @@
+{
+  "parent": "foxyfriends:tab/take_from_mouth",
+  "criteria": {
+    "fox_treasure": {
+      "trigger": "foxyfriends:mouth_item_taken",
+      "conditions": {
+        "item": {
+          "items": "#foxyfriends:fox_treasures"
+        }
+      }
+    },
+    "rare_item": {
+      "trigger": "foxyfriends:mouth_item_taken",
+      "conditions": {
+        "min_rarity": "rare"
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_treasure.description"
+    },
+    "icon": {
+      "id": "minecraft:emerald"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_treasure.title"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "fox_treasure",
+      "rare_item"
+    ]
+  ]
+}

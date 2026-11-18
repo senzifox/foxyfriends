@@ -1,0 +1,15 @@
+{
+  "values": [
+    "minecraft:emerald",
+    "minecraft:diamond",
+    "minecraft:gold_ingot",
+    "minecraft:netherite_ingot",
+    "minecraft:netherite_scrap",
+    "minecraft:amethyst_shard",
+    "minecraft:rabbit_foot",
+    "minecraft:emerald_block",
+    "minecraft:diamond_block",
+    "minecraft:gold_block",
+    "minecraft:netherite_block"
+  ]
+}

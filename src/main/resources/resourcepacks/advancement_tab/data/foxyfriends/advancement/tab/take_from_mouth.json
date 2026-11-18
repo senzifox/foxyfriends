@@ -1,0 +1,24 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "take_from_mouth": {
+      "trigger": "foxyfriends:mouth_item_taken"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.take_from_mouth.description"
+    },
+    "icon": {
+      "id": "minecraft:egg"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.take_from_mouth.title"
+    }
+  },
+  "requirements": [
+    [
+      "take_from_mouth"
+    ]
+  ]
+}

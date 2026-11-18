@@ -1,6 +1,8 @@
 package dev.senzifox.foxyfriends.mouth;
 
+import dev.senzifox.foxyfriends.advancement.FoxAdvancements;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -28,6 +30,9 @@ public final class FoxMouth {
 			player.setItemInHand(hand, held);
 			fox.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
 			fox.playSound(SoundEvents.ITEM_PICKUP);
+			if (player instanceof ServerPlayer serverPlayer) {
+				FoxAdvancements.MOUTH_ITEM_TAKEN.trigger(serverPlayer, held);
+			}
 		}
 
 		return InteractionResult.SUCCESS;

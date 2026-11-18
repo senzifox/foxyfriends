@@ -18,6 +18,7 @@ public final class FoxAdvancements {
 	public static final CollarColoredTrigger COLLAR_COLORED = new CollarColoredTrigger();
 	public static final PlayerTrigger NAMED_FOX = new PlayerTrigger();
 	public static final PlayerTrigger COMMANDED_FOX = new PlayerTrigger();
+	public static final MouthItemTakenTrigger MOUTH_ITEM_TAKEN = new MouthItemTakenTrigger();
 
 	private FoxAdvancements() {
 	}
@@ -31,6 +32,7 @@ public final class FoxAdvancements {
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("collar_colored"), COLLAR_COLORED);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("named_fox"), NAMED_FOX);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("commanded_fox"), COMMANDED_FOX);
+		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("mouth_item_taken"), MOUTH_ITEM_TAKEN);
 		ResourceLoader.registerBuiltinPack(
 			FoxyFriends.id("advancement_tab"),
 			FabricLoader.getInstance().getModContainer(FoxyFriends.MOD_ID).orElseThrow(),
