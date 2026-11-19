@@ -1,0 +1,33 @@
+{
+  "parent": "foxyfriends:tab/fox_defended",
+  "criteria": {
+    "fox_kills": {
+      "trigger": "foxyfriends:fox_killed_mob",
+      "conditions": {
+        "total": {
+          "min": 50
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_kills.description"
+    },
+    "icon": {
+      "id": "minecraft:skeleton_skull"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_kills.title"
+    },
+    "frame": "challenge"
+  },
+  "requirements": [
+    [
+      "fox_kills"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}
