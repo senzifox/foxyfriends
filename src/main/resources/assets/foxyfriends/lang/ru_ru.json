@@ -77,6 +77,8 @@
   "advancements.foxyfriends.fox_totem.description": "Тотем бессмертия в пасти спас твоего лиса от гибели",
   "advancements.foxyfriends.fox_kills.title": "Джон Уик",
   "advancements.foxyfriends.fox_kills.description": "Твои лисы одолели 50 враждебных мобов",
+  "advancements.foxyfriends.raid_with_fox.title": "Семь самураев",
+  "advancements.foxyfriends.raid_with_fox.description": "Отбей набег вместе со своим лисом",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

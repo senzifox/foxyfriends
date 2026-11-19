@@ -16,7 +16,8 @@
 		"FoxSleepGoalMixin",
 		"LivingEntityMixin",
 		"MobMixin",
-		"NameTagItemMixin"
+		"NameTagItemMixin",
+		"RaidMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

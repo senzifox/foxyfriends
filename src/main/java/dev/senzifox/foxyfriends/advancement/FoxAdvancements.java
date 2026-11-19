@@ -28,6 +28,7 @@ public final class FoxAdvancements {
 	public static final PlayerTrigger WANDERING_FOX_HUNTED = new PlayerTrigger();
 	public static final FoxKilledMobTrigger FOX_KILLED_MOB = new FoxKilledMobTrigger();
 	public static final PlayerTrigger FOX_SAVED_BY_TOTEM = new PlayerTrigger();
+	public static final PlayerTrigger RAID_WON_WITH_FOX = new PlayerTrigger();
 
 	private FoxAdvancements() {
 	}
@@ -51,6 +52,7 @@ public final class FoxAdvancements {
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("wandering_fox_hunted"), WANDERING_FOX_HUNTED);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("fox_killed_mob"), FOX_KILLED_MOB);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("fox_saved_by_totem"), FOX_SAVED_BY_TOTEM);
+		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("raid_won_with_fox"), RAID_WON_WITH_FOX);
 		ResourceLoader.registerBuiltinPack(
 			FoxyFriends.id("advancement_tab"),
 			FabricLoader.getInstance().getModContainer(FoxyFriends.MOD_ID).orElseThrow(),

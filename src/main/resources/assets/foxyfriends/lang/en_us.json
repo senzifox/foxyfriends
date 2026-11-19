@@ -77,6 +77,8 @@
   "advancements.foxyfriends.fox_totem.description": "Have a totem of undying in your fox's mouth save its life",
   "advancements.foxyfriends.fox_kills.title": "Toss a Coin to Your Fox",
   "advancements.foxyfriends.fox_kills.description": "Have your foxes defeat 50 hostile mobs",
+  "advancements.foxyfriends.raid_with_fox.title": "Helm's Deep",
+  "advancements.foxyfriends.raid_with_fox.description": "Win a raid with your fox at your side",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",
