@@ -14,12 +14,10 @@ public final class FoxKills {
 	public static void init() {
 		ServerLivingEntityEvents.AFTER_DEATH.register((victim, source) -> {
 			if (source.getEntity() instanceof Fox fox && FoxOwnership.getOwner(fox) instanceof ServerPlayer owner) {
-				FoxAdvancements.FOX_KILLED_MOB.trigger(owner, isOwnersFight(owner, victim));
+				boolean attackedOwner = victim == owner.getLastHurtByMob();
+				boolean ownersFight = attackedOwner || victim == owner.getLastHurtMob();
+				FoxAdvancements.FOX_KILLED_MOB.trigger(owner, fox, ownersFight, attackedOwner);
 			}
 		});
-	}
-
-	private static boolean isOwnersFight(ServerPlayer owner, LivingEntity victim) {
-		return victim == owner.getLastHurtMob() || victim == owner.getLastHurtByMob();
 	}
 }

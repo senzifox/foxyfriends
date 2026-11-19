@@ -1,0 +1,40 @@
+{
+  "parent": "foxyfriends:tab/fox_defended",
+  "criteria": {
+    "armed_fox": {
+      "trigger": "foxyfriends:fox_killed_mob",
+      "conditions": {
+        "owners_fight": true,
+        "fox": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:equipment": {
+              "mainhand": {
+                "items": "#minecraft:enchantable/weapon"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.armed_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:diamond_sword"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.armed_fox.title"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "armed_fox"
+    ]
+  ]
+}

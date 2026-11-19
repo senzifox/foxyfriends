@@ -1,0 +1,35 @@
+{
+  "parent": "foxyfriends:tab/fox_defended",
+  "criteria": {
+    "guardian_fox": {
+      "trigger": "foxyfriends:fox_killed_mob",
+      "conditions": {
+        "attacked_owner": true,
+        "owner_health": {
+          "max": 6.0
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.guardian_fox.description"
+    },
+    "icon": {
+      "id": "minecraft:shield"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.guardian_fox.title"
+    },
+    "frame": "challenge",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "guardian_fox"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}
