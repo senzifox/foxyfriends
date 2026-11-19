@@ -14,6 +14,7 @@
 		"FoxSearchForItemsGoalMixin",
 		"FoxSeekShelterGoalMixin",
 		"FoxSleepGoalMixin",
+		"LivingEntityMixin",
 		"MobMixin",
 		"NameTagItemMixin"
 	],

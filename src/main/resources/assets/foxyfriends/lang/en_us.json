@@ -73,6 +73,8 @@
   "advancements.foxyfriends.armed_fox.description": "Have your fox defeat an enemy while holding a weapon in its mouth",
   "advancements.foxyfriends.guardian_fox.title": "Saved by the Tail",
   "advancements.foxyfriends.guardian_fox.description": "Have your fox finish off your attacker while you are at three hearts or less",
+  "advancements.foxyfriends.fox_totem.title": "Nine Lives?",
+  "advancements.foxyfriends.fox_totem.description": "Have a totem of undying in your fox's mouth save its life",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

@@ -73,6 +73,8 @@
   "advancements.foxyfriends.armed_fox.description": "Твой лис одолел врага с оружием в пасти",
   "advancements.foxyfriends.guardian_fox.title": "Хвостатый хранитель",
   "advancements.foxyfriends.guardian_fox.description": "Твой лис одолел напавшего на тебя врага, когда у тебя оставалось не больше трёх сердец",
+  "advancements.foxyfriends.fox_totem.title": "Лис, который выжил",
+  "advancements.foxyfriends.fox_totem.description": "Тотем бессмертия в пасти спас твоего лиса от гибели",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

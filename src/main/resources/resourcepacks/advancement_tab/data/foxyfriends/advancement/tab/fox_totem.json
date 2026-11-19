@@ -1,0 +1,26 @@
+{
+  "parent": "foxyfriends:tab/armed_fox",
+  "criteria": {
+    "fox_totem": {
+      "trigger": "foxyfriends:fox_saved_by_totem"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_totem.description"
+    },
+    "icon": {
+      "id": "minecraft:totem_of_undying"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_totem.title"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "fox_totem"
+    ]
+  ]
+}

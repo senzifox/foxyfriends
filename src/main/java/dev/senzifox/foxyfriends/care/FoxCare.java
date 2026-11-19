@@ -9,12 +9,15 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityReference;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -92,6 +95,18 @@ public final class FoxCare {
 		AttributeInstance instance = fox.getAttribute(attribute);
 		if (instance != null && instance.getBaseValue() != value) {
 			instance.setBaseValue(value);
+		}
+	}
+
+	public static void onSavedByTotem(Fox fox) {
+		EntityReference<LivingEntity> reference = FoxOwnership.getOwnerReference(fox);
+		if (reference == null || !(fox.level() instanceof ServerLevel level)) {
+			return;
+		}
+
+		ServerPlayer owner = level.getServer().getPlayerList().getPlayer(reference.getUUID());
+		if (owner != null) {
+			FoxAdvancements.FOX_SAVED_BY_TOTEM.trigger(owner);
 		}
 	}
 }
