@@ -5,6 +5,7 @@ import dev.senzifox.foxyfriends.armor.FoxArmor;
 import dev.senzifox.foxyfriends.care.FoxCare;
 import dev.senzifox.foxyfriends.collar.FoxCollar;
 import dev.senzifox.foxyfriends.config.FoxConfig;
+import dev.senzifox.foxyfriends.mode.FoxHunting;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.network.FoxVersionCheck;
 import dev.senzifox.foxyfriends.pat.FoxPatting;
@@ -22,6 +23,7 @@ public class FoxyFriends implements ModInitializer {
 		FoxConfig.init();
 		FoxOwnership.init();
 		FoxModes.init();
+		FoxHunting.init();
 		FoxCare.init();
 		FoxCollar.init();
 		FoxArmor.init();

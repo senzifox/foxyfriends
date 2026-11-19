@@ -65,6 +65,8 @@
   "advancements.foxyfriends.nap_time.description": "Stay beside your fox until it dozes off",
   "advancements.foxyfriends.fox_waited.title": "Home Alone",
   "advancements.foxyfriends.fox_waited.description": "Leave your fox sitting or wandering and come back to it a day later",
+  "advancements.foxyfriends.fox_hunter.title": "Fantastic Mr. Fox",
+  "advancements.foxyfriends.fox_hunter.description": "Have your wandering fox catch its own prey",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

@@ -65,6 +65,8 @@
   "advancements.foxyfriends.nap_time.description": "Побудь рядом со своим лисом, пока он не задремлет",
   "advancements.foxyfriends.fox_waited.title": "Хатико",
   "advancements.foxyfriends.fox_waited.description": "Оставь своего лиса сидеть или гулять и вернись к нему через сутки",
+  "advancements.foxyfriends.fox_hunter.title": "Вы продаёте рыбов?",
+  "advancements.foxyfriends.fox_hunter.description": "Твой лис на прогулке сам поймал себе добычу",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

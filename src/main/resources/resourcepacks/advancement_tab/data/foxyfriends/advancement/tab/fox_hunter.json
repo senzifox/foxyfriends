@@ -1,0 +1,25 @@
+{
+  "parent": "foxyfriends:tab/fox_waited",
+  "criteria": {
+    "fox_hunter": {
+      "trigger": "foxyfriends:wandering_fox_hunted"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_hunter.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:chicken"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_hunter.title"
+    }
+  },
+  "requirements": [
+    [
+      "fox_hunter"
+    ]
+  ]
+}
