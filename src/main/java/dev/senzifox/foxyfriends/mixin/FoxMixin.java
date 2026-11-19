@@ -11,6 +11,7 @@ import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.mode.FoxReturnHomeGoal;
 import dev.senzifox.foxyfriends.mode.FoxSitGoal;
 import dev.senzifox.foxyfriends.mode.FoxWaiting;
+import dev.senzifox.foxyfriends.sleep.FoxBedNapGoal;
 import dev.senzifox.foxyfriends.sleep.FoxSleepBesideOwnerGoal;
 import dev.senzifox.foxyfriends.taming.FoxBreeding;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
@@ -52,6 +53,7 @@ public abstract class FoxMixin extends Animal implements OwnableEntity {
 		goalSelector.addGoal(1, new FoxSitGoal(fox));
 		goalSelector.addGoal(2, new FoxSleepBesideOwnerGoal(fox));
 		goalSelector.addGoal(3, new FoxFollowOwnerGoal(fox));
+		goalSelector.addGoal(6, new FoxBedNapGoal(fox));
 		goalSelector.addGoal(8, new FoxReturnHomeGoal(fox));
 		targetSelector.addGoal(1, new FoxOwnerHurtByTargetGoal(fox));
 		targetSelector.addGoal(2, new FoxOwnerHurtTargetGoal(fox));
