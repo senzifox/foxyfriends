@@ -61,6 +61,8 @@
   "advancements.foxyfriends.fox_in_nether.description": "Lead your fox through a portal into the Nether",
   "advancements.foxyfriends.fox_in_end.title": "One Small Step for a Fox",
   "advancements.foxyfriends.fox_in_end.description": "Bring your fox along to the End",
+  "advancements.foxyfriends.nap_time.title": "Nap Time",
+  "advancements.foxyfriends.nap_time.description": "Stay beside your fox until it dozes off",
   "commands.foxyfriends.reload.failure": "FoxyFriends config not reloaded: %s",
   "commands.foxyfriends.reload.success": "FoxyFriends config reloaded",
   "config.foxyfriends.category.client": "Client",

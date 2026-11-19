@@ -1,0 +1,25 @@
+{
+  "parent": "foxyfriends:tab/command_fox",
+  "criteria": {
+    "nap_time": {
+      "trigger": "foxyfriends:napped_beside_fox"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.nap_time.description"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:white_wool"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.nap_time.title"
+    }
+  },
+  "requirements": [
+    [
+      "nap_time"
+    ]
+  ]
+}

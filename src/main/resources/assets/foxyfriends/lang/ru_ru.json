@@ -61,6 +61,8 @@
   "advancements.foxyfriends.fox_in_nether.description": "Проведи своего лиса через портал в Незер",
   "advancements.foxyfriends.fox_in_end.title": "И целого мира мало",
   "advancements.foxyfriends.fox_in_end.description": "Возьми своего лиса с собой в Энд",
+  "advancements.foxyfriends.nap_time.title": "Ушёл в себя, вернусь не скоро",
+  "advancements.foxyfriends.nap_time.description": "Побудь рядом со своим лисом, пока он не задремлет",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

@@ -23,6 +23,7 @@ public final class FoxAdvancements {
 	public static final PlayerTrigger CALMED_FOX = new PlayerTrigger();
 	public static final PlayerTrigger BOATED_WITH_FOX = new PlayerTrigger();
 	public static final FoxChangedDimensionTrigger FOX_CHANGED_DIMENSION = new FoxChangedDimensionTrigger();
+	public static final PlayerTrigger NAPPED_BESIDE_FOX = new PlayerTrigger();
 
 	private FoxAdvancements() {
 	}
@@ -41,6 +42,7 @@ public final class FoxAdvancements {
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("calmed_fox"), CALMED_FOX);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("boated_with_fox"), BOATED_WITH_FOX);
 		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("fox_changed_dimension"), FOX_CHANGED_DIMENSION);
+		Registry.register(BuiltInRegistries.TRIGGER_TYPES, FoxyFriends.id("napped_beside_fox"), NAPPED_BESIDE_FOX);
 		ResourceLoader.registerBuiltinPack(
 			FoxyFriends.id("advancement_tab"),
 			FabricLoader.getInstance().getModContainer(FoxyFriends.MOD_ID).orElseThrow(),
