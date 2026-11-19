@@ -10,6 +10,7 @@ import dev.senzifox.foxyfriends.mode.FoxFollowOwnerGoal;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.mode.FoxReturnHomeGoal;
 import dev.senzifox.foxyfriends.mode.FoxSitGoal;
+import dev.senzifox.foxyfriends.mode.FoxWaiting;
 import dev.senzifox.foxyfriends.taming.FoxBreeding;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.function.Predicate;
@@ -63,6 +64,11 @@ public abstract class FoxMixin extends Animal implements OwnableEntity {
 	@Inject(method = "aiStep", at = @At("TAIL"))
 	private void foxyfriends$glowCollar(CallbackInfo ci) {
 		FoxCollar.tickGlow((Fox) (Object) this);
+	}
+
+	@Inject(method = "aiStep", at = @At("TAIL"))
+	private void foxyfriends$noticeOwnerReturn(CallbackInfo ci) {
+		FoxWaiting.tick((Fox) (Object) this);
 	}
 
 	@Inject(method = "canHoldItem", at = @At("HEAD"), cancellable = true)

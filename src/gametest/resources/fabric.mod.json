@@ -17,7 +17,8 @@
 			"dev.senzifox.foxyfriends.gametest.FoxNamingGameTests",
 			"dev.senzifox.foxyfriends.gametest.FoxArmorGameTests",
 			"dev.senzifox.foxyfriends.gametest.FoxFleeGameTests",
-			"dev.senzifox.foxyfriends.gametest.FoxConfigGameTests"
+			"dev.senzifox.foxyfriends.gametest.FoxConfigGameTests",
+			"dev.senzifox.foxyfriends.gametest.FoxWaitingGameTests"
 		]
 	},
 	"depends": {

@@ -63,6 +63,8 @@
   "advancements.foxyfriends.fox_in_end.description": "Возьми своего лиса с собой в Энд",
   "advancements.foxyfriends.nap_time.title": "Ушёл в себя, вернусь не скоро",
   "advancements.foxyfriends.nap_time.description": "Побудь рядом со своим лисом, пока он не задремлет",
+  "advancements.foxyfriends.fox_waited.title": "Хатико",
+  "advancements.foxyfriends.fox_waited.description": "Оставь своего лиса сидеть или гулять и вернись к нему через сутки",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",

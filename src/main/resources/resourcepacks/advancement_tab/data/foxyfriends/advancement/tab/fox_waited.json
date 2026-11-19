@@ -1,0 +1,25 @@
+{
+  "parent": "foxyfriends:tab/command_fox",
+  "criteria": {
+    "fox_waited": {
+      "trigger": "foxyfriends:came_back_to_fox"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_waited.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:clock"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_waited.title"
+    }
+  },
+  "requirements": [
+    [
+      "fox_waited"
+    ]
+  ]
+}
