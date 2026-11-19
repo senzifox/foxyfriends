@@ -13,6 +13,7 @@ public final class FoxStats {
 	public static final Identifier TAMING_ATTEMPTS = FoxyFriends.id("taming_attempts");
 	public static final Identifier KITS_BORN = FoxyFriends.id("kits_born");
 	public static final Identifier KITS_RAISED = FoxyFriends.id("kits_raised");
+	public static final Identifier FOX_KILLS = FoxyFriends.id("fox_kills");
 
 	private FoxStats() {
 	}
@@ -23,6 +24,7 @@ public final class FoxStats {
 		register(TAMING_ATTEMPTS);
 		register(KITS_BORN);
 		register(KITS_RAISED);
+		register(FOX_KILLS);
 	}
 
 	private static void register(Identifier stat) {
