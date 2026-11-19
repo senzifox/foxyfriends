@@ -1,0 +1,28 @@
+{
+  "parent": "foxyfriends:tab/root",
+  "criteria": {
+    "fox_defended": {
+      "trigger": "foxyfriends:fox_killed_mob",
+      "conditions": {
+        "owners_fight": true
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.foxyfriends.fox_defended.description"
+    },
+    "icon": {
+      "id": "minecraft:iron_sword"
+    },
+    "title": {
+      "translate": "advancements.foxyfriends.fox_defended.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "fox_defended"
+    ]
+  ]
+}

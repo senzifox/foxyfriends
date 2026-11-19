@@ -67,6 +67,8 @@
   "advancements.foxyfriends.fox_waited.description": "Оставь своего лиса сидеть или гулять и вернись к нему через сутки",
   "advancements.foxyfriends.fox_hunter.title": "Вы продаёте рыбов?",
   "advancements.foxyfriends.fox_hunter.description": "Твой лис на прогулке сам поймал себе добычу",
+  "advancements.foxyfriends.fox_defended.title": "Своих не бросаем",
+  "advancements.foxyfriends.fox_defended.description": "Пусть твой лис одолеет того, с кем ты сражаешься",
   "commands.foxyfriends.reload.failure": "Конфиг FoxyFriends не перезагружен: %s",
   "commands.foxyfriends.reload.success": "Конфиг FoxyFriends перезагружен",
   "config.foxyfriends.category.client": "Клиент",
