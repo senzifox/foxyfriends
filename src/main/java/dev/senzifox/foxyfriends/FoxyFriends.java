@@ -10,6 +10,7 @@ import dev.senzifox.foxyfriends.mode.FoxHunting;
 import dev.senzifox.foxyfriends.mode.FoxModes;
 import dev.senzifox.foxyfriends.network.FoxVersionCheck;
 import dev.senzifox.foxyfriends.pat.FoxPatting;
+import dev.senzifox.foxyfriends.species.FoxSpeciesData;
 import dev.senzifox.foxyfriends.stats.FoxStats;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import dev.senzifox.foxyfriends.travel.FoxTravel;
@@ -29,6 +30,7 @@ public class FoxyFriends implements ModInitializer {
 		FoxCare.init();
 		FoxCollar.init();
 		FoxArmor.init();
+		FoxSpeciesData.init();
 		FoxVersionCheck.init();
 		FoxPatting.init();
 		FoxStats.init();
