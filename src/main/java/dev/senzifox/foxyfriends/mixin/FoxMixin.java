@@ -13,6 +13,7 @@ import dev.senzifox.foxyfriends.mode.FoxSitGoal;
 import dev.senzifox.foxyfriends.mode.FoxWaiting;
 import dev.senzifox.foxyfriends.sleep.FoxBedNapGoal;
 import dev.senzifox.foxyfriends.sleep.FoxSleepBesideOwnerGoal;
+import dev.senzifox.foxyfriends.species.FoxSpeciesData;
 import dev.senzifox.foxyfriends.taming.FoxBreeding;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.function.Predicate;
@@ -119,6 +120,7 @@ public abstract class FoxMixin extends Animal implements OwnableEntity {
 	@Inject(method = "getBreedOffspring(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/AgeableMob;)Lnet/minecraft/world/entity/animal/fox/Fox;", at = @At("RETURN"))
 	private void foxyfriends$inheritOwner(ServerLevel level, AgeableMob partner, CallbackInfoReturnable<Fox> cir) {
 		if (cir.getReturnValue() instanceof Fox baby && partner instanceof Fox partnerFox) {
+			FoxSpeciesData.inherit(baby, (Fox) (Object) this, partnerFox);
 			FoxBreeding.onBorn(baby, (Fox) (Object) this, partnerFox);
 		}
 	}

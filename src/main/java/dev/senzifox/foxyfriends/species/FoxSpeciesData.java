@@ -24,4 +24,9 @@ public final class FoxSpeciesData {
 	public static @Nullable FoxSpecies get(Fox fox) {
 		return fox.getAttached(SPECIES);
 	}
+
+	public static void inherit(Fox baby, Fox parent, Fox partner) {
+		Fox source = baby.getRandom().nextBoolean() ? parent : partner;
+		baby.setAttached(SPECIES, get(source));
+	}
 }
