@@ -19,10 +19,12 @@ English | [Русский](README.ru.md)
 - **Petting** - sneak and right-click any fox with an empty hand, your own fox calms down and stays out of fights for a few seconds
 - **Drop it** - sneak and right-click your fox with an empty hand to take whatever it holds in its mouth
 - **Health** - look at your fox to see its health above the hotbar
+- **Sleep** - at night your fox curls up at the foot of your bed, while wandering it naps on a nearby bed by day
 - **Breeding** - a baby of two tamed foxes is born tamed to whoever fed the first parent, with one tamed parent it's a coin flip
+- **Dune foxes** - a sandy fox species that lives in deserts and savannas, kits take after a random parent
 - **Collar** - use any dye on your fox to recolor its collar, a glow ink sac makes it glow in the dark
 - **Armor** - leather, copper, iron, golden, diamond or netherite, right-click an adult fox with it to put it on, shears to take it off
-- **Advancements** - 22 advancements, statistics
+- **Advancements** - 39 advancements, statistics
 
 More details in the [wiki](https://senzi.dev/foxyfriends/wiki/en)
 

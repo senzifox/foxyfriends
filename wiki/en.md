@@ -5,11 +5,13 @@ English | [Русский](ru.md)
 - [Installation](#installation)
 - [Taming](#taming)
 - [Commands](#commands)
+- [Sleep](#sleep)
 - [Defense](#defense)
 - [Health and healing](#health-and-healing)
 - [Petting](#petting)
 - [Mouth item](#mouth-item)
 - [Breeding](#breeding)
+- [Species](#species)
 - [Collar](#collar)
 - [Armor](#armor)
 - [Advancements](#advancements)
@@ -49,7 +51,7 @@ Command - right-click own fox with an empty hand without sneaking, order *Follow
 |-|-|-|-|
 | movement | after the owner | stays put | within 16 blocks of "home" |
 | hunting | no | no | yes (`wander_hunting`) |
-| sleep | no | dozes | like vanilla |
+| sleep | by the owner at night | dozes | like vanilla, by the owner at night, on a bed by day |
 | defends owner | yes | no | yes |
 | strikes back | yes | yes | yes |
 
@@ -57,7 +59,7 @@ Command - right-click own fox with an empty hand without sneaking, order *Follow
 - starts following beyond 10 blocks, stops at 2 blocks
 - teleports to the owner when 12 or more blocks behind
 - doesn't follow while leashed, riding, fighting or when the owner is in another dimension
-- doesn't sleep or seek shelter by day
+- doesn't sleep or seek shelter by day, sleeps at the owner's feet at night
 
 ### Sit
 - dozes by day without a thunderstorm, under a roof, with no threats within 12 blocks and not in powder snow, wakes up when any condition breaks
@@ -66,7 +68,20 @@ Command - right-click own fox with an empty hand without sneaking, order *Follow
 ### Wander
 - home - the spot where the fox started wandering, moves when the leash is removed and when the fox changes dimension
 - behaves like a vanilla fox: sleeps by day, seeks shelter
+- naps on a nearby bed by day, sleeps at the owner's feet at night
 - returns when it strays beyond the radius
+
+## Sleep
+### By the owner at night
+Owner lies down in a bed --> their fox on *Follow* or *Wander* within 10 blocks walks to the foot of the bed and falls asleep
+- one fox per bed
+- doesn't go while leashed or riding
+- wakes up 1–3 seconds after the owner, right away when in danger
+- sits at the foot without falling asleep during a thunderstorm
+
+### On a bed by day
+A fox on *Wander* naps on a free bed within 6 blocks, same conditions as dozing on *Sit*: daytime without a thunderstorm, a roof overhead, no threats within 12 blocks  
+A fox asleep on the floor gets up and goes to the bed
 
 ## Defense
 In *Follow* and *Wander*:
@@ -116,6 +131,20 @@ With berries as in vanilla
 Tamed foxes can only be bred at full health, otherwise healing  
 A tamed baby follows adult foxes only in *Wander*
 
+## Species
+| species | where it spawns |
+|-|-|
+| red | as in vanilla |
+| snow | as in vanilla |
+| dune | desert (weight 1) and savannas (weight 2), groups of 1–2 |
+
+- the species is picked by biome when a fox appears: natural spawn, spawn egg, `/summon` without NBT
+- dune fox biomes - `#foxyfriends:spawns_corsac_foxes`, in the desert foxes spawn on sand, which the mod adds to `minecraft:foxes_spawnable_on`
+- a kit gets the species of a random parent
+- summon a dune fox: `/summon fox ~ ~ ~ {"fabric:attachments":{"foxyfriends:species":"corsac"}}`
+- turned off with the `new_species` key, dune foxes don't spawn and aren't picked by biome, existing dune foxes and their kits stay dune foxes
+- textures - `foxyfriends:textures/entity/fox/corsac/`, can be changed with a resource pack
+
 ## Collar
 All tamed foxes have one, babies included, default color - red, the owner recolors it with any dye  
 A glow ink sac makes the collar glow in the dark, an ink sac removes the glow
@@ -160,7 +189,7 @@ Recipes unlock in the recipe book on getting the material
 | It's Called a Hustle, Sweetheart | a fox picks up an item thrown by the player |
 | You May Now Kiss the Fox | breed foxes |
 | An Act Too Often Neglected | tame a fox, grants vanilla "Best Friends Forever" along with it |
-| Love at First Bite | tame a wild fox that didn't trust the player on the first feeding |
+| [Love at First Bite](#spoiler) | tame a wild fox that didn't trust the player on the first feeding |
 
 ### FoxyFriends
 Own tab from the built-in data pack "FoxyFriends: Advancement Tab", enabled by default, turned off with `/datapack disable "foxyfriends:advancement_tab"`  
@@ -173,7 +202,7 @@ The tab appears after the first petting or taming of a fox
 | What Does the Fox Say? | look at a fox through a spyglass |
 | Alolan Form | tame a red fox and a snow fox, in any order |
 | Five Nights at Foxy's | 5 own foxes within 16 blocks at the moment of taming or birth of a tamed kit |
-| Never Gonna Give You Up | tame a wild fox that didn't trust the player on the player's 22nd feeding or later |
+| [Never Gonna Give You Up](#spoiler) | tame a wild fox that didn't trust the player on the player's 22nd feeding or later |
 | I Am Your Father | a tamed kit is born to the player |
 | They Grow Up So Fast | own kit grows up while the owner is online |
 | Dress to Impress | dye the collar of own fox |
@@ -182,6 +211,23 @@ The tab appears after the first petting or taming of a fox
 | Say My Name | name own fox with a name tag |
 | Drip Check | put fox armor on own fox by clicking |
 | Berserker Armor | put netherite fox armor on by clicking |
+| Your Wish Is My Command | give own fox a command |
+| Home Alone | come within 16 blocks of own fox on *Sit* or *Wander* after being away for a game day or longer |
+| Fantastic Mr. Fox | own fox on *Wander* kills a chicken, a rabbit or a fish, not reachable with `wander_hunting` off |
+| Whatever Floats Your Fox | sit in one boat with own fox, in any order |
+| To Hell and Back | own fox enters the Nether while the owner is online |
+| One Small Step for a Fox | own fox enters the End while the owner is online |
+| [Nap Time](#spoiler) | own fox on *Sit* dozes off with the owner within 8 blocks |
+| I Need Your Clothes, Your Boots… | take an item from the mouth of own fox |
+| [The Fox's Share](#spoiler) | take a treasure from the mouth of own fox: emerald, diamond, gold, netherite, amethyst shard, rabbit's foot or their blocks, also any rare or epic item, enchanted ones included |
+| Need a Medic! | feed own fox with 20% health or less |
+| Chill Guy | pet own fox while it fights or was just hurt |
+| Outfoxed | own fox kills the mob that last hurt the owner or that the owner last hurt |
+| [Armed and Fluffy](#spoiler) | like Outfoxed, with a weapon in the fox's mouth: sword, spear, axe or mace (`#minecraft:enchantable/weapon`) |
+| [Saved by the Tail](#spoiler) | own fox kills the mob that last hurt the owner while the owner has 3 hearts or less |
+| [Nine Lives?](#spoiler) | a totem of undying in the mouth of own fox saves its life while the owner is online |
+| Toss a Coin to Your Fox | own foxes kill 50 hostile mobs, counted in the Hostiles Defeated by Foxes statistic |
+| Helm's Deep | win a raid with a living own fox not on *Sit* within 32 blocks |
 
 ### Statistics
 Rows in the vanilla statistics menu, counted since the mod was installed
@@ -193,6 +239,7 @@ Rows in the vanilla statistics menu, counted since the mod was installed
 | Taming Attempts | any taming feeding |
 | Kits Born | a tamed kit is born to the player |
 | Kits Raised | own kit grows up while the owner is online |
+| Hostiles Defeated by Foxes | own fox kills a hostile mob while the owner is online |
 
 ## Config
 ### Server
@@ -207,6 +254,7 @@ Rows in the vanilla statistics menu, counted since the mod was installed
 | `regen_amount` | `1.0` | 0–1024 | health per regeneration |
 | `regen_interval_ticks` | `600` | 1–72000 | ticks between regenerations |
 | `regen_calm_ticks` | `200` | 0–72000 | ticks without damage before regeneration starts |
+| `new_species` | `true` | bool | dune foxes in deserts and savannas, spawning changes after rejoining the world |
 
 ### Client
 `config/foxyfriends-client.json`
@@ -231,14 +279,16 @@ The fox's owner is available to vanilla commands via `on owner`, for example `/e
 | `#foxyfriends:fox_taming_food` | taming food | raw chicken, rabbit, cod, salmon, tropical fish |
 | `#foxyfriends:fox_healing_food` | healing food | raw and cooked meat and fish, sweet and glow berries |
 | `#foxyfriends:fox_wont_attack` | mobs tamed foxes never attack | creeper, ghast, happy ghast, armor stand, iron golem, warden, ravager, wither, ender dragon, elder guardian |
+| `#foxyfriends:spawns_corsac_foxes` | biomes where an appearing fox becomes a dune fox | desert, `#minecraft:is_savanna` |
 
-The mod adds its armor to vanilla tags
+The mod adds to vanilla tags
 
-| tag | armor |
+| tag | what is added |
 |-|-|
-| `minecraft:piglin_loved` | golden |
-| `minecraft:cauldron_can_remove_dye` | leather |
-| `minecraft:freeze_immune_wearables` | leather |
+| `minecraft:piglin_loved` | golden armor |
+| `minecraft:cauldron_can_remove_dye` | leather armor |
+| `minecraft:freeze_immune_wearables` | leather armor |
+| `minecraft:foxes_spawnable_on` | sand |
 
 ## Compatibility
 Jade and other mods showing a pet's owner - tamed foxes implement vanilla `OwnableEntity`
