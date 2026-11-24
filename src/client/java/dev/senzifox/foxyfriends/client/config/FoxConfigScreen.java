@@ -30,6 +30,7 @@ public final class FoxConfigScreen {
 	private float regenAmount;
 	private int regenIntervalTicks;
 	private int regenCalmTicks;
+	private boolean newSpecies;
 	private boolean healthActionbar;
 
 	private FoxConfigScreen(FoxyFriendsConfig config, FoxyFriendsClientConfig clientConfig) {
@@ -40,6 +41,7 @@ public final class FoxConfigScreen {
 		regenAmount = config.regenAmount();
 		regenIntervalTicks = config.regenIntervalTicks();
 		regenCalmTicks = config.regenCalmTicks();
+		newSpecies = config.newSpecies();
 		healthActionbar = clientConfig.healthActionbar();
 	}
 
@@ -74,6 +76,10 @@ public final class FoxConfigScreen {
 					.option(option("regen_calm_ticks", DEFAULT.regenCalmTicks(), () -> regenCalmTicks, value -> regenCalmTicks = value,
 						opt -> IntegerFieldControllerBuilder.create(opt).range(0, 72000)))
 					.build())
+				.group(OptionGroup.createBuilder()
+					.name(Component.translatable("config.foxyfriends.group.world"))
+					.option(option("new_species", DEFAULT.newSpecies(), () -> newSpecies, value -> newSpecies = value, TickBoxControllerBuilder::create))
+					.build())
 				.build())
 			.category(ConfigCategory.createBuilder()
 				.name(Component.translatable("config.foxyfriends.category.client"))
@@ -84,7 +90,7 @@ public final class FoxConfigScreen {
 	}
 
 	private void save() {
-		FoxyFriendsConfig config = new FoxyFriendsConfig(wanderHunting, wildTameChance, tamedMaxHealth, tamedAttackDamage, regenAmount, regenIntervalTicks, regenCalmTicks);
+		FoxyFriendsConfig config = new FoxyFriendsConfig(wanderHunting, wildTameChance, tamedMaxHealth, tamedAttackDamage, regenAmount, regenIntervalTicks, regenCalmTicks, newSpecies);
 		FoxConfig.update(config, Minecraft.getInstance().getSingleplayerServer());
 		FoxClientConfig.update(new FoxyFriendsClientConfig(healthActionbar));
 	}

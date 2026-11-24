@@ -17,7 +17,8 @@ public class FoxConfigGameTests {
 			FoxyFriendsConfig.DEFAULT.tamedAttackDamage(),
 			FoxyFriendsConfig.DEFAULT.regenAmount(),
 			FoxyFriendsConfig.DEFAULT.regenIntervalTicks(),
-			FoxyFriendsConfig.DEFAULT.regenCalmTicks()
+			FoxyFriendsConfig.DEFAULT.regenCalmTicks(),
+			FoxyFriendsConfig.DEFAULT.newSpecies()
 		), "config");
 		helper.succeed();
 	}

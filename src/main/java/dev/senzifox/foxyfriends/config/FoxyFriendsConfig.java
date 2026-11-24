@@ -10,9 +10,10 @@ public record FoxyFriendsConfig(
 	double tamedAttackDamage,
 	float regenAmount,
 	int regenIntervalTicks,
-	int regenCalmTicks
+	int regenCalmTicks,
+	boolean newSpecies
 ) {
-	public static final FoxyFriendsConfig DEFAULT = new FoxyFriendsConfig(true, 0.1F, 25.0, 3.0, 1.0F, 600, 200);
+	public static final FoxyFriendsConfig DEFAULT = new FoxyFriendsConfig(true, 0.1F, 25.0, 3.0, 1.0F, 600, 200, true);
 
 	public static final Codec<FoxyFriendsConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 		ConfigFile.field(Codec.BOOL, "wander_hunting", DEFAULT.wanderHunting).forGetter(FoxyFriendsConfig::wanderHunting),
@@ -21,6 +22,7 @@ public record FoxyFriendsConfig(
 		ConfigFile.field(Codec.doubleRange(0.0, 2048.0), "tamed_attack_damage", DEFAULT.tamedAttackDamage).forGetter(FoxyFriendsConfig::tamedAttackDamage),
 		ConfigFile.field(Codec.floatRange(0.0F, 1024.0F), "regen_amount", DEFAULT.regenAmount).forGetter(FoxyFriendsConfig::regenAmount),
 		ConfigFile.field(Codec.intRange(1, 72000), "regen_interval_ticks", DEFAULT.regenIntervalTicks).forGetter(FoxyFriendsConfig::regenIntervalTicks),
-		ConfigFile.field(Codec.intRange(0, 72000), "regen_calm_ticks", DEFAULT.regenCalmTicks).forGetter(FoxyFriendsConfig::regenCalmTicks)
+		ConfigFile.field(Codec.intRange(0, 72000), "regen_calm_ticks", DEFAULT.regenCalmTicks).forGetter(FoxyFriendsConfig::regenCalmTicks),
+		ConfigFile.field(Codec.BOOL, "new_species", DEFAULT.newSpecies).forGetter(FoxyFriendsConfig::newSpecies)
 	).apply(instance, FoxyFriendsConfig::new));
 }

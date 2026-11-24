@@ -1,8 +1,11 @@
 package dev.senzifox.foxyfriends.species;
 
 import dev.senzifox.foxyfriends.FoxyFriends;
+import dev.senzifox.foxyfriends.config.FoxConfig;
+import java.util.function.Predicate;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.Holder;
@@ -27,14 +30,18 @@ public final class FoxSpeciesSpawns {
 
 	public static void init() {
 		BiomeModifications.create(FoxyFriends.id("corsac_foxes"))
-			.add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(Biomes.DESERT), context -> addFoxes(context, DESERT_WEIGHT))
-			.add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(BiomeTags.IS_SAVANNA), context -> addFoxes(context, SAVANNA_WEIGHT));
+			.add(ModificationPhase.ADDITIONS, whenEnabled(BiomeSelectors.includeByKey(Biomes.DESERT)), context -> addFoxes(context, DESERT_WEIGHT))
+			.add(ModificationPhase.ADDITIONS, whenEnabled(BiomeSelectors.tag(BiomeTags.IS_SAVANNA)), context -> addFoxes(context, SAVANNA_WEIGHT));
 	}
 
 	public static void pickByBiome(Fox fox, Holder<Biome> biome) {
-		if (biome.is(SPAWNS_CORSAC_FOXES)) {
+		if (FoxConfig.get().newSpecies() && biome.is(SPAWNS_CORSAC_FOXES)) {
 			fox.setAttached(FoxSpeciesData.SPECIES, FoxSpecies.CORSAC);
 		}
+	}
+
+	private static Predicate<BiomeSelectionContext> whenEnabled(Predicate<BiomeSelectionContext> selector) {
+		return context -> FoxConfig.get().newSpecies() && selector.test(context);
 	}
 
 	private static void addFoxes(BiomeModificationContext context, int weight) {
