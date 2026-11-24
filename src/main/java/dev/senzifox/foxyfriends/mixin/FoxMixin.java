@@ -14,21 +14,26 @@ import dev.senzifox.foxyfriends.mode.FoxWaiting;
 import dev.senzifox.foxyfriends.sleep.FoxBedNapGoal;
 import dev.senzifox.foxyfriends.sleep.FoxSleepBesideOwnerGoal;
 import dev.senzifox.foxyfriends.species.FoxSpeciesData;
+import dev.senzifox.foxyfriends.species.FoxSpeciesSpawns;
 import dev.senzifox.foxyfriends.taming.FoxBreeding;
 import dev.senzifox.foxyfriends.taming.FoxOwnership;
 import java.util.function.Predicate;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityReference;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -115,6 +120,11 @@ public abstract class FoxMixin extends Animal implements OwnableEntity {
 	private Predicate<LivingEntity> foxyfriends$fleePlayersOnlyWhenWild(Predicate<LivingEntity> predicate) {
 		Fox fox = (Fox) (Object) this;
 		return entity -> !FoxOwnership.isTame(fox) && predicate.test(entity);
+	}
+
+	@Inject(method = "finalizeSpawn", at = @At("RETURN"))
+	private void foxyfriends$pickSpeciesByBiome(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, @Nullable SpawnGroupData groupData, CallbackInfoReturnable<SpawnGroupData> cir) {
+		FoxSpeciesSpawns.pickByBiome((Fox) (Object) this, level.getBiome(blockPosition()));
 	}
 
 	@Inject(method = "getBreedOffspring(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/AgeableMob;)Lnet/minecraft/world/entity/animal/fox/Fox;", at = @At("RETURN"))
